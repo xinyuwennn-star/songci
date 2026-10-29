@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>瓷友分享 | 宋瓷五窑纪</title>
+		<link rel="stylesheet" href="css/common.css?v=2">
+		<link rel="stylesheet" href="css/share.css">
+		<script src="js/lang-common.js"></script>
+		<script src="js/lang-share.js"></script>
+		<script src="js/i18n.js"></script>
+		<script src="js/globalErrorHandler.js"></script>
+			<link rel="stylesheet" href="css/responsive.css">
+	</head>
+	<body>
+		<div class="nav-logo-bar">
+			<div class="nav-logo" data-i18n="brand.name">宋瓷五窑纪</div>
+		</div>
+
+		<!-- 功能导航栏：悬浮在轮播图下方 -->
+		<div class="nav-menu-bar">
+			<div class="nav-menu">
+				<a href="index.html" data-i18n="nav.home">首页</a>
+				<div class="nav-dropdown dropdown-wuyaos">
+					<a href="#" data-i18n="nav.kilns">五大名窑</a>
+					<div class="dropdown-content">
+						<a href="ruyao.html" data-i18n="nav.ruyao">汝窑</a>
+						<a href="guanyao.html" data-i18n="nav.guanyao">官窑</a>
+						<a href="geyao.html" data-i18n="nav.geyao">哥窑</a>
+						<a href="junyao.html" data-i18n="nav.junyao">钧窑</a>
+						<a href="dingyao.html" data-i18n="nav.dingyao">定窑</a>
+					</div>
+				</div>
+				<a href="workshop.html" data-i18n="nav.workshop">宋瓷工坊</a>
+				<a href="share.html" data-i18n="nav.share">瓷友分享</a>
+				<a href="heritage.html" data-i18n="nav.heritage">非遗传承</a>
+				<div class="nav-dropdown dropdown-more">
+					<a href="#" data-i18n="nav.more">更多</a>
+					<div class="dropdown-content">
+						<a href="funfact.html" data-i18n="nav.funfact">窑口冷知识</a>
+						<a href="collection.html" data-i18n="nav.collection">我的收藏</a>
+						<a href="contact.html" data-i18n="nav.contact">联系我们</a>
+					</div>
+				</div>
+				<button type="button" class="lang-toggle" id="langToggle">EN</button>
+			</div>
+		</div>
+
+		<div class="share-container">
+			<h2 class="share-title" data-i18n="share.title">瓷友分享区</h2>
+
+			<!-- 上传区域 -->
+			<div class="upload-area">
+				<button class="upload-btn" onclick="document.getElementById('fileInput').click()" data-i18n="share.upload">上传作品图片</button>
+				<input type="file" id="fileInput" style="display:none" accept="image/*">
+				<p class="upload-tips" data-i18n="share.uploadTips">支持上传JPG/PNG格式图片，大小不超过10MB</p>
+				<!-- 图片预览 -->
+				<div class="selected-img-preview" id="imgPreviewContainer">
+					<img id="selectedImg" alt="预览图">
+				</div>
+			</div>
+
+			<!-- 评论区域 -->
+			<div class="comment-area">
+				<textarea id="commentInput" placeholder="分享你的宋瓷故事或作品心得..." data-i18n-placeholder="share.commentPlaceholder"></textarea>
+				<button class="publish-btn" id="publishBtn" disabled data-i18n="share.publish">发布评论</button>
+			</div>
+
+			<!-- 作品展示区 -->
+			<h3 class="works-title" data-i18n="share.worksTitle">瓷友佳作</h3>
+			<div class="works-area" id="worksArea">
+				<!-- 初始示例作品（添加收藏按钮和data-id标识） -->
+				<div class="work-card" data-id="1" data-author="@大宋瓷迷" data-desc="瓷器消消乐通关，太有成就感了！每一块都对应真实哥窑的开片肌理，细节拉满～"
+					data-img="img/瓷友分享2.png">
+					<div class="work-card-header">
+						<button class="collect-btn" onclick="toggleCollect(this)" data-i18n="share.collect">❤️ 收藏</button>
+					</div>
+					<img src="img/瓷友分享2.png" class="work-img" alt="作品2">
+					<div class="work-info">
+						<p class="work-author" data-i18n="share.work1.author">@大宋瓷迷</p>
+						<p class="work-desc" data-i18n="share.work1.desc">瓷器消消乐通关，太有成就感了！每一块都对应真实哥窑的开片肌理，细节拉满～</p>
+					</div>
+				</div>
+				<div class="work-card" data-id="2" data-author="@釉色玩家"
+					data-desc="钧窑窑变釉配色，尝试了好多次才满意~ 红色与蓝色的过渡太美妙了，果然是'入窑一色，出窑万彩'！" data-img="img/瓷友分享1.png">
+					<div class="work-card-header">
+						<button class="collect-btn" onclick="toggleCollect(this)" data-i18n="share.collect">❤️ 收藏</button>
+					</div>
+					<img src="img/瓷友分享1.png" class="work-img" alt="作品3">
+					<div class="work-info">
+						<p class="work-author" data-i18n="share.work2.author">@釉色玩家</p>
+						<p class="work-desc" data-i18n="share.work2.desc">钧窑窑变釉配色，尝试了好多次才满意~ 红色与蓝色的过渡太美妙了，果然是"入窑一色，出窑万彩"！</p>
+					</div>
+				</div>
+				<div class="work-card" data-id="3" data-author="@纹样设计师"
+					data-desc="原创宋瓷缠枝莲纹，参考了宋代定窑的印花工艺，把传统纹样做了简化设计，分享给大家~" data-img="img/花卉纹.png">
+					<div class="work-card-header">
+						<button class="collect-btn" onclick="toggleCollect(this)" data-i18n="share.collect">❤️ 收藏</button>
+					</div>
+					<img src="img/花卉纹.png" class="work-img" alt="作品4">
+					<div class="work-info">
+						<p class="work-author" data-i18n="share.work3.author">@纹样设计师</p>
+						<p class="work-desc" data-i18n="share.work3.desc">原创宋瓷缠枝莲纹，参考了宋代定窑的印花工艺，把传统纹样做了简化设计，分享给大家~</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p data-i18n="footer.copyright">宋瓷五窑纪</p>
+		</div>
+
+		<!-- 提示弹窗 -->
+		<div class="toast" id="toast">操作成功</div>
+
+		<script>
+			// 快捷取翻译
+			function __t(key) {
+				if (window.SongCiI18N && typeof window.SongCiI18N.t === 'function') {
+					return window.SongCiI18N.t(key);
+				}
+				return key;
+			}
+
+			// 获取DOM元素
+			const fileInput = document.getElementById('fileInput');
+			const imgPreviewContainer = document.getElementById('imgPreviewContainer');
+			const selectedImg = document.getElementById('selectedImg');
+			const commentInput = document.getElementById('commentInput');
+			const publishBtn = document.getElementById('publishBtn');
+			const worksArea = document.getElementById('worksArea');
+			const toast = document.getElementById('toast');
+
+			// 图片选择预览
+			fileInput.addEventListener('change', function(e) {
+				const file = e.target.files[0];
+				if (!file) return;
+
+				// 验证文件大小（10MB = 10 * 1024 * 1024 = 10485760 bytes）
+				if (file.size > 10485760) {
+					alert(__t('share.sizeLimit'));
+					fileInput.value = '';
+					imgPreviewContainer.style.display = 'none';
+					checkPublishBtnStatus();
+					return;
+				}
+
+				// 预览图片
+				const reader = new FileReader();
+				reader.onload = function(event) {
+					selectedImg.src = event.target.result;
+					imgPreviewContainer.style.display = 'block';
+					checkPublishBtnStatus();
+				};
+				reader.readAsDataURL(file);
+			});
+
+			// 监听评论输入，控制发布按钮状态
+			commentInput.addEventListener('input', checkPublishBtnStatus);
+
+			// 检查发布按钮是否可点击
+			function checkPublishBtnStatus() {
+				const hasImg = imgPreviewContainer.style.display === 'block';
+				const hasComment = commentInput.value.trim() !== '';
+				publishBtn.disabled = !(hasImg && hasComment);
+			}
+
+			// 发布作品
+			publishBtn.addEventListener('click', function() {
+				const imgSrc = selectedImg.src;
+				const comment = commentInput.value.trim();
+				const author = '@' + generateRandomNickname(); // 生成随机昵称
+				const workId = Date.now().toString(); // 用时间戳作为唯一ID（转字符串避免类型问题）
+
+				// 创建新作品卡片（带收藏按钮和data属性）
+				const newWorkCard = document.createElement('div');
+				newWorkCard.className = 'work-card';
+				newWorkCard.setAttribute('data-id', workId);
+				newWorkCard.setAttribute('data-author', author);
+				newWorkCard.setAttribute('data-desc', comment);
+				newWorkCard.setAttribute('data-img', imgSrc);
+				newWorkCard.innerHTML = `
+	<div class="work-card-header">
+	<button class="collect-btn" onclick="toggleCollect(this)">${__t('share.collect')}</button>
+	</div>
+	<img src="${imgSrc}" class="work-img" alt="用户作品">
+	<div class="work-info">
+	<p class="work-author">${author}</p>
+	<p class="work-desc">${comment}</p>
+	</div>
+	`;
+
+				// 添加到作品区最前面
+				worksArea.insertBefore(newWorkCard, worksArea.firstChild);
+
+				// 重置表单
+				fileInput.value = '';
+				commentInput.value = '';
+				imgPreviewContainer.style.display = 'none';
+				publishBtn.disabled = true;
+
+				// 提示发布成功
+				alert(__t('share.publishSuccess'));
+			});
+
+			// 生成随机昵称（增加真实感）
+			function generateRandomNickname() {
+				const prefixes = ['瓷韵', '宋瓷', '釉色', '窑火', '瓷片', '青釉', '白瓷', '开片', '纹样', '古瓷'];
+				const suffixes = ['爱好者', '玩家', '收藏家', '设计师', '传承人', '迷', '达人', '手艺人', '鉴赏家'];
+				const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+				const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+				return prefix + suffix;
+			}
+
+			// 核心：收藏/取消收藏切换函数（修复闪烁+双向同步）
+			function toggleCollect(btn) {
+				// 1. 获取作品元数据
+				const workCard = btn.closest('.work-card');
+				const workId = workCard.getAttribute('data-id');
+				const workImg = workCard.getAttribute('data-img');
+				const workAuthor = workCard.getAttribute('data-author');
+				const workDesc = workCard.getAttribute('data-desc');
+
+				// 2. 读取本地存储的收藏列表
+				let collections = localStorage.getItem('songciCollections');
+				collections = collections ? JSON.parse(collections) : [];
+
+				// 3. 判断当前状态（是否已收藏）
+				const isCollected = collections.some(item => item.id === workId);
+				const today = new Date();
+				const collectTime =
+					`${today.getFullYear()}-${(today.getMonth()+1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+
+				if (isCollected) {
+					// 4. 取消收藏：从本地存储移除，更新按钮状态
+					collections = collections.filter(item => item.id !== workId);
+					localStorage.setItem('songciCollections', JSON.stringify(collections));
+					btn.innerHTML = __t('share.collect');
+					btn.style.color = '#999';
+					btn.style.borderColor = '#ddd';
+					btn.disabled = false;
+					btn.style.cursor = 'pointer';
+					showToast(__t('share.uncollectSuccess'));
+				} else {
+					// 5. 收藏：添加到本地存储，更新按钮状态
+					const collectData = {
+						id: workId,
+						imgSrc: workImg,
+						author: workAuthor,
+						desc: workDesc,
+						time: collectTime
+					};
+					collections.push(collectData);
+					localStorage.setItem('songciCollections', JSON.stringify(collections));
+					btn.innerHTML = __t('share.collected');
+					btn.style.color = '#e74c3c';
+					btn.style.borderColor = '#e74c3c';
+					btn.disabled = false; // 不禁用，允许再次点击取消
+					btn.style.cursor = 'pointer';
+					showToast(__t('share.collectSuccess'));
+				}
+			}
+
+			// 显示提示弹窗（无闪烁）
+			function showToast(msg) {
+				toast.textContent = msg;
+				toast.style.display = 'block';
+				toast.style.opacity = '1'; // 直接显示，取消延迟闪烁
+				setTimeout(() => {
+					toast.style.opacity = '0';
+					setTimeout(() => {
+						toast.style.display = 'none';
+					}, 300);
+				}, 2000);
+			}
+
+			// 页面加载时初始化收藏状态（修复闪烁核心：仅执行一次，不重复触发）
+			window.onload = function() {
+				const collections = localStorage.getItem('songciCollections');
+				if (!collections) return;
+
+				const collectedList = JSON.parse(collections);
+				const collectBtns = document.querySelectorAll('.collect-btn');
+
+				collectBtns.forEach(btn => {
+					const workId = btn.closest('.work-card').getAttribute('data-id');
+					const isCollected = collectedList.some(item => item.id === workId);
+					if (isCollected) {
+						btn.innerHTML = __t('share.collected');
+						btn.style.color = '#e74c3c';
+						btn.style.borderColor = '#e74c3c';
+					}
+				});
+			};
+
+			// 语言切换时刷新已渲染的收藏按钮文本
+			window.addEventListener('langchange', function() {
+				let collectedList = [];
+				try { collectedList = JSON.parse(localStorage.getItem('songciCollections')) || []; } catch (e) {}
+				document.querySelectorAll('.collect-btn').forEach(btn => {
+					const workId = btn.closest('.work-card').getAttribute('data-id');
+					const isCollected = collectedList.some(item => item.id === workId);
+					if (isCollected) {
+						btn.innerHTML = __t('share.collected');
+						btn.style.color = '#e74c3c';
+						btn.style.borderColor = '#e74c3c';
+					} else {
+						btn.innerHTML = __t('share.collect');
+					}
+				});
+			});
+		</script>
+	
+		<script src="js/seal.js"></script>
+		<script src="js/particles.js"></script>
+	
+	<script src="js/reveal.js?v=3"></script>
+</body>
+</html>

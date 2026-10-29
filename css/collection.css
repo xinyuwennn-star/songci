@@ -1,0 +1,197 @@
+/* 收藏页面基础样式 */
+.collection-container {
+	max-width: 1200px;
+	margin: 180px auto auto auto;
+	background: url("../img/18.jpg");
+	border-radius: 10px;
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+	padding: 30px;
+	min-height: 800px;
+}
+
+.collection-title {
+	font-size: 28px;
+	color: #1a3c34;
+	margin-bottom: 8px;
+	text-align: center;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #e0d8cf;
+	display: inline-block;
+	width: 100%;
+}
+
+.collection-desc {
+	color: #666;
+	font-size: 16px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+/* 空收藏状态样式 */
+.empty-collection {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 500px;
+	text-align: center;
+}
+
+.empty-img {
+	width: 180px;
+	height: 180px;
+	margin-bottom: 20px;
+	opacity: 0.7;
+}
+
+.empty-collection p {
+	color: #999;
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
+.go-share-btn {
+	padding: 12px 30px;
+	background-color: #f2a365;
+	color: #fff;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 16px;
+	transition: background-color 0.3s;
+}
+
+.go-share-btn:hover {
+	background-color: #e08744;
+}
+
+/* 收藏作品展示区 */
+.collections-area {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 25px;
+}
+
+.collection-card {
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+	transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+	background-color: #fff;
+	position: relative;
+}
+
+.collection-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.collection-card-header {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 10;
+}
+
+/* 取消收藏按钮样式 */
+.uncollect-btn {
+	padding: 6px 12px;
+	background-color: rgba(255, 255, 255, 0.9);
+	color: #e74c3c;
+	border: 1px solid #e74c3c;
+	border-radius: 20px;
+	font-size: 13px;
+	cursor: pointer;
+	transition: all 0.3s;
+	outline: none;
+}
+
+.uncollect-btn:hover {
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+.collection-img {
+	width: 100%;
+	height: 220px;
+	object-fit: cover;
+}
+
+.collection-info {
+	padding: 15px;
+}
+
+.collection-author {
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.collection-author::before {
+	content: "👤";
+	margin-right: 8px;
+}
+
+.collection-desc {
+	font-size: 15px;
+	line-height: 1.5;
+	color: #333;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.collect-time {
+	font-size: 12px;
+	color: #999;
+}
+
+/* 提示弹窗样式 */
+.toast {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 12px 24px;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: #fff;
+	border-radius: 5px;
+	font-size: 15px;
+	display: none;
+	opacity: 0;
+	transition: opacity 0.3s;
+	z-index: 1000;
+}
+
+/* 导航栏当前页高亮 */
+.nav-dropdown .dropdown-content a.active {
+	background-color: #f2a365;
+	color: #fff;
+}
+
+/* 响应式适配（移动端优化） */
+@media (max-width: 768px) {
+	.collection-container {
+		padding: 20px;
+		margin: 0 15px;
+	}
+
+	.collections-area {
+		gap: 15px;
+	}
+}
+
+@media (max-width: 480px) {
+	.collection-img {
+		height: 180px;
+	}
+
+	.empty-img {
+		width: 140px;
+		height: 140px;
+	}
+
+	.collection-title {
+		font-size: 24px;
+	}
+}

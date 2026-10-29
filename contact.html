@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>联系我们 | 宋瓷五窑纪</title>
+		<link rel="stylesheet" href="css/common.css?v=2">
+		<link rel="stylesheet" href="css/contact.css">
+		<script src="js/lang-common.js"></script>
+		<script src="js/lang-contact.js"></script>
+		<script src="js/i18n.js"></script>
+		<script src="js/globalErrorHandler.js"></script>
+			<link rel="stylesheet" href="css/responsive.css">
+	</head>
+	<body>
+		<!-- 宋瓷风华文字（悬浮轮播图上方） -->
+		<div class="nav-logo" data-i18n="brand.name">宋瓷五窑纪</div>
+
+		<!-- 功能导航栏（悬浮轮播图上方） -->
+		<div class="nav-menu-bar">
+			<div class="nav-menu">
+				<a href="index.html" data-i18n="nav.home">首页</a>
+				<div class="nav-dropdown dropdown-wuyaos">
+					<a href="#" data-i18n="nav.kilns">五大名窑</a>
+					<div class="dropdown-content">
+						<a href="ruyao.html" data-i18n="nav.ruyao">汝窑</a>
+						<a href="guanyao.html" data-i18n="nav.guanyao">官窑</a>
+						<a href="geyao.html" data-i18n="nav.geyao">哥窑</a>
+						<a href="junyao.html" data-i18n="nav.junyao">钧窑</a>
+						<a href="dingyao.html" data-i18n="nav.dingyao">定窑</a>
+					</div>
+				</div>
+				<a href="workshop.html" data-i18n="nav.workshop">宋瓷工坊</a>
+				<a href="share.html" data-i18n="nav.share">瓷友分享</a>
+				<a href="heritage.html" data-i18n="nav.heritage">非遗传承</a>
+				<div class="nav-dropdown dropdown-more">
+					<a href="#" data-i18n="nav.more">更多</a>
+					<div class="dropdown-content">
+						<a href="funfact.html" data-i18n="nav.funfact">窑口冷知识</a>
+						<a href="collection.html" data-i18n="nav.collection">我的收藏</a>
+						<a href="contact.html" data-i18n="nav.contact">联系我们</a>
+					</div>
+				</div>
+				<button type="button" class="lang-toggle" id="langToggle">EN</button>
+			</div>
+		</div>
+
+
+		<!-- 页面主体 -->
+		<div class="page-container">
+			<h2 class="page-title" data-i18n="contact.pageTitle">联系我们——交流宋瓷文化，解答您的疑问</h2>
+
+			<div class="contact-wrapper">
+				<!-- 左侧：留言咨询表单 -->
+				<div class="contact-form">
+					<h3 class="contact-subtitle" data-i18n="contact.formTitle">留言咨询</h3>
+					<form id="contactForm">
+						<div class="form-group">
+							<label for="name" data-i18n="contact.labelName">姓名</label>
+							<input type="text" id="name" name="name" required placeholder="请输入您的姓名" data-i18n-placeholder="contact.placeholderName">
+						</div>
+						<div class="form-group">
+							<label for="email" data-i18n="contact.labelEmail">邮箱</label>
+							<input type="email" id="email" name="email" required placeholder="请输入您的邮箱" data-i18n-placeholder="contact.placeholderEmail">
+						</div>
+						<div class="form-group">
+							<label for="subject" data-i18n="contact.labelSubject">主题</label>
+							<input type="text" id="subject" name="subject" required placeholder="请输入留言主题（如：宋瓷咨询、合作洽谈等）" data-i18n-placeholder="contact.placeholderSubject">
+						</div>
+						<div class="form-group">
+							<label for="message" data-i18n="contact.labelMessage">留言内容</label>
+							<textarea id="message" name="message" required
+								placeholder="请详细描述您的疑问或需求，我们会尽快回复您～" data-i18n-placeholder="contact.placeholderMessage"></textarea>
+						</div>
+						<button type="submit" class="submit-btn" data-i18n="contact.submit">提交留言</button>
+					</form>
+				</div>
+
+				<!-- 右侧：联系方式 -->
+				<div class="contact-info">
+					<h3 class="contact-subtitle" data-i18n="contact.infoTitle">联系方式</h3>
+					<div class="contact-details">
+						<div class="contact-item">
+							<div class="contact-text">
+								<h4 data-i18n="contact.telTitle">电话</h4>
+								<p data-i18n="contact.telValue">666-888888</p>
+								<p data-i18n="contact.workTime">工作时间：周一至周五 9:00-18:00</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<div class="contact-text">
+								<h4 data-i18n="contact.emailTitle">邮箱</h4>
+								<p data-i18n="contact.emailValue">songciwuyaoji@888.com</p>
+								<p data-i18n="contact.replyTime">邮件回复时效：1-2个工作日</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<div class="contact-text">
+								<h4 data-i18n="contact.officialTitle">官方公众号</h4>
+								<p data-i18n="contact.officialDesc1">扫码关注"宋瓷五窑纪"公众号</p>
+								<p data-i18n="contact.officialDesc2">获取更多宋瓷资讯与活动信息</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 页脚 -->
+		<div class="footer">
+			<p data-i18n="footer.copyright">宋瓷五窑纪</p>
+		</div>
+
+		<!-- 表单提交JS -->
+		<script>
+			// 快捷取翻译
+			function __t(key) {
+				if (window.SongCiI18N && typeof window.SongCiI18N.t === 'function') {
+					return window.SongCiI18N.t(key);
+				}
+				return key;
+			}
+
+			const contactForm = document.getElementById('contactForm');
+			contactForm.addEventListener('submit', function(e) {
+				e.preventDefault(); // 阻止默认提交行为
+
+				// 获取表单数据（实际项目中可发送到后端）
+				const name = document.getElementById('name').value;
+				const email = document.getElementById('email').value;
+				const subject = document.getElementById('subject').value;
+				const message = document.getElementById('message').value;
+
+				// 模拟提交成功
+				alert(__t('contact.successMsg')
+					.replace('{name}', name)
+					.replace('{subject}', subject)
+					.replace('{email}', email));
+
+				// 重置表单
+				contactForm.reset();
+			});
+		</script>
+
+
+
+	
+		<script src="js/seal.js"></script>
+		<script src="js/particles.js"></script>
+	
+	<script src="js/reveal.js?v=3"></script>
+</body>
+</html>

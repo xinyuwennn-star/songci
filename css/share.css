@@ -1,0 +1,265 @@
+/* 分享区主体 */
+.share-container {
+	max-width: 1200px;
+	margin: 180px auto auto auto;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+	padding: 30px;
+	min-height: 800px;
+}
+
+.share-title {
+	font-size: 28px;
+	color: #1a3c34;
+	margin-bottom: 20px;
+	text-align: center;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #e0d8cf;
+	display: inline-block;
+	width: 100%;
+}
+
+/* 上传区域 */
+.upload-area {
+	border: 2px dashed #ddd;
+	border-radius: 8px;
+	padding: 40px;
+	text-align: center;
+	margin-bottom: 30px;
+	transition: border-color 0.3s;
+}
+
+.upload-area:hover {
+	border-color: #f2a365;
+}
+
+.upload-btn {
+	padding: 12px 30px;
+	background-color: #f2a365;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	margin-bottom: 15px;
+	font-size: 16px;
+	transition: background-color 0.3s;
+}
+
+.upload-btn:hover {
+	background-color: #e08744;
+}
+
+.upload-tips {
+	color: #666;
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+/* 预览已选图片 */
+.selected-img-preview {
+	margin: 20px auto 0;
+	max-width: 300px;
+	max-height: 200px;
+	display: none;
+}
+
+.selected-img-preview img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	border-radius: 4px;
+	border: 1px solid #eee;
+}
+
+/* 评论区域 */
+.comment-area {
+	margin-bottom: 30px;
+}
+
+.comment-area textarea {
+	width: 100%;
+	height: 120px;
+	padding: 15px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	resize: none;
+	margin-bottom: 10px;
+	font-size: 15px;
+}
+
+.comment-area textarea:focus {
+	outline: none;
+	border-color: #f2a365;
+}
+
+.publish-btn {
+	padding: 10px 25px;
+	background-color: #1a3c34;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s;
+}
+
+.publish-btn:hover {
+	background-color: #2c5e52;
+}
+
+.publish-btn:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+
+/* 作品展示区 */
+.works-title {
+	color: #1a3c34;
+	font-size: 22px;
+	margin-bottom: 20px;
+	padding-left: 10px;
+	border-left: 4px solid #f2a365;
+}
+
+.works-area {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 25px;
+}
+
+.work-card {
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s;
+	background-color: #fff;
+}
+
+.work-card:hover {
+	transform: translateY(-5px);
+}
+
+.work-img {
+	width: 100%;
+	height: 220px;
+	object-fit: cover;
+}
+
+.work-info {
+	padding: 15px;
+}
+
+.work-author {
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.work-author::before {
+	content: "👤";
+	margin-right: 8px;
+}
+
+.work-desc {
+	font-size: 15px;
+	line-height: 1.5;
+	color: #333;
+}
+
+/* 页脚 */
+.footer {
+	width: 100%;
+	padding: 24px 0;
+	background-color: #1a3c34;
+	color: #ccc;
+	text-align: center;
+	margin-top: 50px;
+	font-size: 18px;
+	letter-spacing: 8px;
+	text-indent: 8px;
+}
+
+/* 作品卡片头部样式 */
+.work-card-header {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 10;
+}
+
+/* 收藏按钮样式 */
+.collect-btn {
+	padding: 6px 12px;
+	background-color: rgba(255, 255, 255, 0.9);
+	color: #999;
+	border: 1px solid #ddd;
+	border-radius: 20px;
+	font-size: 13px;
+	cursor: pointer;
+	transition: all 0.3s;
+	outline: none;
+	/* 取消点击聚焦闪烁 */
+}
+
+.collect-btn:hover {
+	background-color: #fef5f5;
+	border-color: #e74c3c;
+	color: #e74c3c;
+}
+
+/* 已收藏状态样式 */
+.collect-btn[data-collected="true"] {
+	background-color: #fef5f5;
+	border-color: #e74c3c;
+	color: #e74c3c;
+}
+
+/* 提示弹窗样式（无闪烁） */
+.toast {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 12px 24px;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: #fff;
+	border-radius: 5px;
+	font-size: 15px;
+	display: none;
+	opacity: 0;
+	transition: opacity 0.3s;
+	z-index: 1000;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+	.share-container {
+		padding: 20px;
+		margin: 0 15px;
+	}
+
+	.works-area {
+		gap: 15px;
+	}
+
+	.page-header-spacer {
+		height: 140px;
+	}
+}
+
+@media (max-width: 480px) {
+	.upload-area {
+		padding: 20px;
+	}
+
+	.work-img {
+		height: 180px;
+	}
+
+	.page-header-spacer {
+		height: 120px;
+	}
+}

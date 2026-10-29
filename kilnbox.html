@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>窑变盲盒 · 入窑一色 出窑万彩 | 宋瓷五窑纪</title>
+	<link rel="stylesheet" href="css/common.css?v=2">
+	<link rel="stylesheet" href="css/kilnbox.css">
+	<script src="js/lang-common.js"></script>
+	<script src="js/lang-kilnbox.js"></script>
+	<script src="js/i18n.js"></script>
+	<script src="js/globalErrorHandler.js"></script>
+	<script src="js/seal.js"></script>
+		<link rel="stylesheet" href="css/responsive.css">
+	</head>
+<body>
+	<div class="nav-logo-bar">
+		<div class="nav-logo" data-i18n="brand.name">宋瓷五窑纪</div>
+	</div>
+	<div class="nav-menu-bar">
+		<div class="nav-menu">
+			<a href="index.html" data-i18n="nav.home">首页</a>
+			<div class="nav-dropdown dropdown-wuyaos">
+				<a href="#" data-i18n="nav.kilns">五大名窑</a>
+				<div class="dropdown-content">
+					<a href="ruyao.html" data-i18n="nav.ruyao">汝窑</a>
+					<a href="guanyao.html" data-i18n="nav.guanyao">官窑</a>
+					<a href="geyao.html" data-i18n="nav.geyao">哥窑</a>
+					<a href="junyao.html" data-i18n="nav.junyao">钧窑</a>
+					<a href="dingyao.html" data-i18n="nav.dingyao">定窑</a>
+				</div>
+			</div>
+			<a href="workshop.html" data-i18n="nav.workshop">宋瓷工坊</a>
+			<a href="share.html" data-i18n="nav.share">瓷友分享</a>
+			<a href="heritage.html" data-i18n="nav.heritage">非遗传承</a>
+			<div class="nav-dropdown dropdown-more">
+				<a href="#" data-i18n="nav.more">更多</a>
+				<div class="dropdown-content">
+					<a href="funfact.html" data-i18n="nav.funfact">窑口冷知识</a>
+					<a href="collection.html" data-i18n="nav.collection">我的收藏</a>
+					<a href="contact.html" data-i18n="nav.contact">联系我们</a>
+				</div>
+			</div>
+			<button type="button" class="lang-toggle" id="langToggle">EN</button>
+		</div>
+	</div>
+
+	<div class="kilnbox-container">
+		<!-- 剧情引子 -->
+		<div class="story-bar">
+			<p class="story-text" data-i18n="kilnbox.story1">北宋·禹州钧台 —— 你是替宫廷烧瓷的窑工。钧瓷之美，尽在窑变：釉料入窑时只是一色天蓝，开窑那一刻，铜红釉料在高温还原焰中幻化出万紫千红。连徽宗也忍不住下令："雨过天青釉可仿，窑变天成不可求。"</p>
+			<p class="story-text sub" data-i18n="kilnbox.story2">每一次开窑都是一场豪赌。今天这一窑，会烧出什么？</p>
+		</div>
+
+		<!-- 第一步：选坯 -->
+		<div class="kb-step active" id="kbStep1">
+			<h2 class="kb-title" data-i18n="kilnbox.step1.title">第一步 · 选坯装窑</h2>
+			<div class="kb-shape-list">
+				<div class="kb-shape-item" data-shape="bowl">
+					<svg viewBox="0 0 100 100"><path d="M18,38 Q20,72 50,76 Q80,72 82,38 Q66,46 50,46 Q34,46 18,38 Z"/></svg>
+					<p data-i18n="kilnbox.shape.bowl">窑变碗</p>
+				</div>
+				<div class="kb-shape-item" data-shape="vase">
+					<svg viewBox="0 0 100 100"><path d="M42,12 Q40,22 36,30 Q28,42 28,56 Q28,80 50,82 Q72,80 72,56 Q72,42 64,30 Q60,22 58,12 Q54,16 50,16 Q46,16 42,12 Z"/></svg>
+					<p data-i18n="kilnbox.shape.vase">窑变瓶</p>
+				</div>
+				<div class="kb-shape-item" data-shape="zun">
+					<svg viewBox="0 0 100 100"><path d="M30,14 Q46,24 38,38 Q26,56 30,72 Q33,84 50,85 Q67,84 70,72 Q74,56 62,38 Q54,24 70,14 Q60,20 50,20 Q40,20 30,14 Z"/></svg>
+					<p data-i18n="kilnbox.shape.zun">窑变尊</p>
+				</div>
+				<div class="kb-shape-item" data-shape="plate">
+					<svg viewBox="0 0 100 100"><path d="M14,52 Q14,74 50,76 Q86,74 86,52 Q70,62 50,62 Q30,62 14,52 Z"/></svg>
+					<p data-i18n="kilnbox.shape.plate">窑变盘</p>
+				</div>
+			</div>
+			<div class="kb-btn-group">
+				<button class="kb-btn primary" id="kbToFire" disabled data-i18n="kilnbox.btn.fire">装窑 · 点火</button>
+			</div>
+		</div>
+
+		<!-- 第二步：烧制 -->
+		<div class="kb-step" id="kbStep2">
+			<h2 class="kb-title" data-i18n="kilnbox.step2.title">第二步 · 入窑烧制</h2>
+			<p class="kb-hint" data-i18n="kilnbox.step2.hint">炉温 1280℃，还原焰……釉料中的铜、铁正在悄悄发色</p>
+			<div class="kb-kiln">
+				<div class="kb-kiln-mouth">
+					<div class="kb-flame"></div>
+					<div class="kb-glow"></div>
+				</div>
+				<div class="kb-kiln-body"></div>
+				<div class="kb-smoke"><span></span><span></span><span></span></div>
+			</div>
+			<div class="kb-temp"><div class="kb-temp-fill" id="kbTempFill"></div><span id="kbTempText">0℃</span></div>
+		</div>
+
+		<!-- 第三步：开窑 -->
+		<div class="kb-step" id="kbStep3">
+			<h2 class="kb-title" data-i18n="kilnbox.step3.title">第三步 · 开窑见宝</h2>
+			<div class="kb-result">
+				<div class="kb-canvas-wrap">
+					<canvas id="kbCanvas" width="520" height="560"></canvas>
+					<div class="kb-flash" id="kbFlash"></div>
+				</div>
+				<div class="kb-info">
+					<h3 class="kb-piece-name" id="kbPieceName">——</h3>
+					<p class="kb-rating" id="kbRating">——</p>
+					<p class="kb-desc" id="kbDesc">——</p>
+					<p class="kb-trivia" id="kbTrivia"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 底部导航栏：开窑后显示，位于页脚之前 -->
+	<div class="kb-bottom-bar" id="kbBottomBar" style="display:none;">
+		<button class="kb-btn primary" id="kbSaveBtn" data-i18n="kilnbox.btn.save">存入收藏</button>
+		<button class="kb-btn" id="kbShareBtn" data-i18n="kilnbox.btn.share">生成分享卡片</button>
+		<button class="kb-btn" id="kbAgainBtn" data-i18n="kilnbox.btn.again">再烧一窑</button>
+	</div>
+
+	<div class="footer">
+		<p data-i18n="footer.copyright">宋瓷五窑纪</p>
+	</div>
+
+	<script src="js/kilnbox.js"></script>
+	<script src="js/particles.js"></script>
+
+	<script src="js/reveal.js?v=3"></script>
+</body>
+</html>

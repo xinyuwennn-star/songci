@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>开片实验室 · 金丝铁线如何生长 | 宋瓷五窑纪</title>
+	<link rel="stylesheet" href="css/common.css?v=2">
+	<link rel="stylesheet" href="css/crackle.css">
+	<script src="js/lang-common.js"></script>
+	<script src="js/lang-crackle.js"></script>
+	<script src="js/i18n.js"></script>
+	<script src="js/globalErrorHandler.js"></script>
+	<script src="js/seal.js"></script>
+		<link rel="stylesheet" href="css/responsive.css">
+	</head>
+<body>
+	<div class="nav-logo-bar">
+		<div class="nav-logo" data-i18n="brand.name">宋瓷五窑纪</div>
+	</div>
+	<div class="nav-menu-bar">
+		<div class="nav-menu">
+			<a href="index.html" data-i18n="nav.home">首页</a>
+			<div class="nav-dropdown dropdown-wuyaos">
+				<a href="#" data-i18n="nav.kilns">五大名窑</a>
+				<div class="dropdown-content">
+					<a href="ruyao.html" data-i18n="nav.ruyao">汝窑</a>
+					<a href="guanyao.html" data-i18n="nav.guanyao">官窑</a>
+					<a href="geyao.html" data-i18n="nav.geyao">哥窑</a>
+					<a href="junyao.html" data-i18n="nav.junyao">钧窑</a>
+					<a href="dingyao.html" data-i18n="nav.dingyao">定窑</a>
+				</div>
+			</div>
+			<a href="workshop.html" data-i18n="nav.workshop">宋瓷工坊</a>
+			<a href="share.html" data-i18n="nav.share">瓷友分享</a>
+			<a href="heritage.html" data-i18n="nav.heritage">非遗传承</a>
+			<div class="nav-dropdown dropdown-more">
+				<a href="#" data-i18n="nav.more">更多</a>
+				<div class="dropdown-content">
+					<a href="funfact.html" data-i18n="nav.funfact">窑口冷知识</a>
+					<a href="collection.html" data-i18n="nav.collection">我的收藏</a>
+					<a href="contact.html" data-i18n="nav.contact">联系我们</a>
+				</div>
+			</div>
+			<button type="button" class="lang-toggle" id="langToggle">EN</button>
+		</div>
+	</div>
+
+	<div class="crackle-container">
+		<div class="story-bar">
+			<p class="story-text" data-i18n="crackle.story.p1">瓷器的“开片”，曾让宋代窑工心惊胆战——出窑时釉面会自己裂开。后来文人们却痴迷于此：“哥窑品格，纹取冰裂为上。”釉面之下，其实藏着一场胎与釉的拉力博弈。</p>
+			<p class="story-text sub" data-i18n="crackle.story.p2">拖动滑块，亲手制造一场开片，看裂纹如何爬满瓷面。</p>
+		</div>
+
+		<div class="lab-wrap">
+			<!-- 左：瓷盘画布 -->
+			<div class="lab-stage">
+				<canvas id="crackleCanvas" width="560" height="560"></canvas>
+				<p class="lab-result-tag" id="crackleTag"> awaiting …</p>
+			</div>
+			<!-- 右：控制台 -->
+			<div class="lab-panel">
+				<h3 class="lab-panel-title" data-i18n="crackle.console">窑务控制台</h3>
+				<div class="lab-ctrl">
+					<label><span data-i18n="crackle.slider.delta.label">胎釉膨胀差（温差）</span><span class="lab-val" id="valDelta">5</span></label>
+					<input type="range" id="deltaRange" min="1" max="10" value="5">
+					<p class="lab-tip" data-i18n="crackle.slider.delta.desc">差值越大，釉层收缩越受拉扯，裂纹越多越密</p>
+				</div>
+				<div class="lab-ctrl">
+					<label><span data-i18n="crackle.slider.thick.label">釉层厚度</span><span class="lab-val" id="valThick">5</span></label>
+					<input type="range" id="thickRange" min="1" max="10" value="5">
+					<p class="lab-tip" data-i18n="crackle.slider.thick.desc">厚釉积累应力大，容易裂出长而深的纹路</p>
+				</div>
+				<div class="lab-ctrl">
+					<label><span data-i18n="crackle.slider.cool.label">冷却速度</span><span class="lab-val" id="valCool">5</span></label>
+					<input type="range" id="coolRange" min="1" max="10" value="5">
+					<p class="lab-tip" data-i18n="crackle.slider.cool.desc">冷却越快，应力来不及释放，开片越急骤</p>
+				</div>
+				<button class="lab-btn primary" id="coolBtn" data-i18n="crackle.btn.fire">开窑 · 冷却</button>
+				<button class="lab-btn" id="resetBtn" data-i18n="crackle.btn.reset">回炉重造</button>
+				<div class="lab-verdict" id="verdict">
+					<h4 id="verdictName">——</h4>
+					<p id="verdictDesc">调整参数后点击「开窑 · 冷却」，观察釉面变化。</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="lab-science">
+			<h3 data-i18n="crackle.why.title">为什么会开片？</h3>
+			<p data-i18n-html="crackle.why.p1">瓷器烧成冷却时，<strong>胎</strong>与<strong>釉</strong>的收缩率不同：釉收缩得比胎快，釉面就被“绷”出了裂缝。温差（膨胀系数差）决定裂纹密度，釉层厚度决定裂纹深度，冷却速度决定开片的急缓。哥窑匠人后来反其道而行，用墨汁、茶汁把裂纹染成“金丝铁线”，把缺陷变成了千年美学。汝窑的冰裂纹、蟹爪纹，原理也相同——只是开得更细、更含蓄。</p>
+		</div>
+	</div>
+
+	<div class="footer">
+		<p data-i18n="footer.copyright">宋瓷五窑纪</p>
+	</div>
+
+	<script src="js/crackle.js"></script>
+	<script src="js/particles.js"></script>
+
+	<script src="js/reveal.js?v=3"></script>
+</body>
+</html>

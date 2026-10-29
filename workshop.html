@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>宋瓷工坊 · 瓷器DIY | 宋瓷五窑纪</title>
+		<link rel="stylesheet" href="css/workshop.css">
+		<link rel="stylesheet" href="css/common.css?v=2">
+		<script src="js/lang-common.js"></script>
+		<script src="js/lang-workshop.js"></script>
+		<script src="js/i18n.js"></script>
+		<script src="js/globalErrorHandler.js"></script>
+			<link rel="stylesheet" href="css/responsive.css">
+	</head>
+	<body>
+		<div class="nav-logo-bar">
+			<div class="nav-logo" data-i18n="brand.name">宋瓷五窑纪</div>
+		</div>
+		<!-- 功能导航栏：悬浮在轮播图下方 -->
+		<div class="nav-menu-bar">
+			<div class="nav-menu">
+				<a href="index.html" data-i18n="nav.home">首页</a>
+				<div class="nav-dropdown dropdown-wuyaos">
+					<a href="#" data-i18n="nav.kilns">五大名窑</a>
+					<div class="dropdown-content">
+						<a href="ruyao.html" data-i18n="nav.ruyao">汝窑</a>
+						<a href="guanyao.html" data-i18n="nav.guanyao">官窑</a>
+						<a href="geyao.html" data-i18n="nav.geyao">哥窑</a>
+						<a href="junyao.html" data-i18n="nav.junyao">钧窑</a>
+						<a href="dingyao.html" data-i18n="nav.dingyao">定窑</a>
+					</div>
+				</div>
+				<a href="workshop.html" data-i18n="nav.workshop">宋瓷工坊</a>
+				<a href="share.html" data-i18n="nav.share">瓷友分享</a>
+				<a href="heritage.html" data-i18n="nav.heritage">非遗传承</a>
+				<div class="nav-dropdown dropdown-more">
+					<a href="#" data-i18n="nav.more">更多</a>
+					<div class="dropdown-content">
+						<a href="funfact.html" data-i18n="nav.funfact">窑口冷知识</a>
+						<a href="collection.html" data-i18n="nav.collection">我的收藏</a>
+						<a href="contact.html" data-i18n="nav.contact">联系我们</a>
+
+					</div>
+				</div>
+				<button type="button" class="lang-toggle" id="langToggle">EN</button>
+			</div>
+		</div>
+
+		<!-- 游戏选择主页面 -->
+		<div class="game-select-page" id="gameSelectPage">
+			<h1 class="main-title" data-i18n="workshop.title">宋瓷工坊</h1>
+			<div class="game-card-container">
+				<!-- 窑变盲盒 卡片（跳转独立玩法页） -->
+				<div class="game-card" onclick="location.href='kilnbox.html'">
+					<h3 class="card-title" data-i18n="workshop.cardKilnbox">窑变盲盒</h3>
+					<p class="card-desc" data-i18n="workshop.cardKilnboxDesc">入窑一色，出窑万彩。亲手赌一窑钧瓷窑变</p>
+				</div>
+
+				<!-- 开片实验室 卡片（跳转独立玩法页） -->
+				<div class="game-card" onclick="location.href='crackle.html'">
+					<h3 class="card-title" data-i18n="workshop.cardCrackle">开片实验室</h3>
+					<p class="card-desc" data-i18n="workshop.cardCrackleDesc">拨动胎釉温差，看冰裂纹爬满瓷面</p>
+				</div>
+
+				<!-- 瓷韵DIY 卡片 -->
+				<div class="game-card" onclick="enterGame('diy')">
+					<h3 class="card-title" data-i18n="workshop.cardDiy">瓷韵DIY</h3>
+					<p class="card-desc" data-i18n="workshop.cardDiyDesc">亲手制作专属宋瓷</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- 1. 瓷韵DIY 游戏页面 -->
+		<div class="game-page" id="diyGamePage">
+			<div class="game-header">
+				<h2 class="game-title" data-i18n="workshop.diy.title">瓷韵DIY</h2>
+				<button class="back-btn" onclick="backToSelect()" data-i18n="workshop.back">返回</button>
+			</div>
+			<div class="diy-container">
+				<div class="diy-main">
+					<!-- 步骤1：选器型 -->
+					<div class="step-panel active" id="diyStep1">
+						<h3 class="step-title" data-i18n="workshop.diy.step1">第一步：选择器型</h3>
+						<div class="shape-list">
+							<div class="shape-item" data-shape="ruyao">
+								<img src="img/汝窑粉青釉莲花式碗.png" class="shape-img" alt="汝窑洗" data-i18n-alt="workshop.diy.shapeRu">
+								<p data-i18n="workshop.diy.shapeRu">汝窑洗</p>
+							</div>
+							<div class="shape-item" data-shape="guanyao">
+								<img src="img/南宋官窑粉青釉贯耳瓶.png" class="shape-img" alt="官窑瓶" data-i18n-alt="workshop.diy.shapeGuan">
+								<p data-i18n="workshop.diy.shapeGuan">官窑瓶</p>
+							</div>
+							<div class="shape-item" data-shape="geyao">
+								<img src="img/哥窑青釉八方杯.png" class="shape-img" alt="哥窑杯" data-i18n-alt="workshop.diy.shapeGe">
+								<p data-i18n="workshop.diy.shapeGe">哥窑杯</p>
+							</div>
+							<div class="shape-item" data-shape="junyao">
+								<img src="img/钧窑海棠红釉出戟尊.png" class="shape-img" alt="钧窑尊" data-i18n-alt="workshop.diy.shapeJun">
+								<p data-i18n="workshop.diy.shapeJun">钧窑尊</p>
+							</div>
+							<div class="shape-item" data-shape="dingyao">
+								<img src="img/定窑白釉刻花牡丹纹碗.png" class="shape-img" alt="定窑碗" data-i18n-alt="workshop.diy.shapeDing">
+								<p data-i18n="workshop.diy.shapeDing">定窑碗</p>
+							</div>
+						</div>
+						<div class="btn-group">
+							<button class="btn next-btn" id="diyToStep2" disabled data-i18n="workshop.diy.next">下一步</button>
+						</div>
+					</div>
+
+					<!-- 步骤2：拉坯塑形 -->
+					<div class="step-panel" id="diyStep2">
+						<h3 class="step-title" data-i18n="workshop.diy.step2">第二步：拉坯塑形</h3>
+						<p class="lapi-tips" data-i18n="workshop.diy.tips">拖动泥坯调整高矮胖瘦，用力过猛会开裂哦！</p>
+						<div class="lapi-container">
+							<div class="lapi-wheel">
+								<div class="clay-body shape-wash" id="diyClayBody"></div>
+								<div class="crack" id="diyCrack"></div>
+							</div>
+						</div>
+						<div class="btn-group">
+							<button class="btn prev-btn" onclick="showDiyStep('diyStep1')" data-i18n="workshop.diy.prev">上一步</button>
+							<button class="btn next-btn" onclick="showDiyStep('diyStep3')" data-i18n="workshop.diy.nextGlaze">下一步（调釉）</button>
+						</div>
+					</div>
+
+					<!-- 步骤3：釉色调配 -->
+					<div class="step-panel" id="diyStep3">
+						<h3 class="step-title" data-i18n="workshop.diy.step3">第三步：釉色调配</h3>
+						<div class="glaze-container">
+							<div class="preset-glazes">
+								<button class="glaze-btn glaze-tianqing active" data-color="#b3cde0" data-i18n="workshop.diy.glazeRu">汝窑天青</button>
+								<button class="glaze-btn glaze-fenqing" data-color="#8fb8cc" data-i18n="workshop.diy.glazeGuan">官窑粉青</button>
+								<button class="glaze-btn glaze-mihuang" data-color="#f2e6d8" data-i18n="workshop.diy.glazeGe">哥窑米黄</button>
+								<button class="glaze-btn glaze-zihong" data-color="#c26e69" data-i18n="workshop.diy.glazeJun">钧窑紫红</button>
+								<button class="glaze-btn glaze-xiaya" data-color="#f5f0e6" data-i18n="workshop.diy.glazeDing">定窑象牙白</button>
+							</div>
+							<div class="custom-glaze">
+								<h4 data-i18n="workshop.diy.custom">自定义釉色</h4>
+								<div class="color-sliders">
+									<div class="slider-item">
+										<label data-i18n="workshop.diy.red">红</label>
+										<input type="range" min="0" max="255" value="179" id="redSlider">
+									</div>
+									<div class="slider-item">
+										<label data-i18n="workshop.diy.green">绿</label>
+										<input type="range" min="0" max="255" value="205" id="greenSlider">
+									</div>
+									<div class="slider-item">
+										<label data-i18n="workshop.diy.blue">蓝</label>
+										<input type="range" min="0" max="255" value="224" id="blueSlider">
+									</div>
+								</div>
+								<div class="test-glaze" id="diyTestGlaze"></div>
+								<button class="btn" id="diyTestGlazeBtn" data-i18n="workshop.diy.testGlaze">试釉</button>
+							</div>
+						</div>
+						<div class="btn-group">
+							<button class="btn prev-btn" onclick="showDiyStep('diyStep2')" data-i18n="workshop.diy.prev">上一步</button>
+							<button class="btn next-btn" id="diyToStep4" data-i18n="workshop.diy.nextPattern">下一步（纹饰）</button>
+						</div>
+					</div>
+
+					<!-- 步骤4：纹饰装饰 -->
+					<div class="step-panel" id="diyStep4">
+						<h3 class="step-title" data-i18n="workshop.diy.stepPattern">第四步：纹饰装饰</h3>
+						<p class="lapi-tips" data-i18n="workshop.diy.patternTips">选择该窑口的经典纹饰，为瓷器点睛</p>
+						<div class="pattern-design-area">
+							<div class="pattern-options" id="patternOptions">
+								<!-- JS 动态生成 -->
+							</div>
+							<div class="pattern-preview" id="patternPreview">
+								<p class="preview-placeholder" data-i18n="workshop.diy.previewHint">← 选个纹饰看看效果，可在瓷体上拖动调整位置</p>
+								<div class="clay-body shape-wash" id="previewClayBody"></div>
+							</div>
+						</div>
+						<div class="btn-group">
+							<button class="btn prev-btn" onclick="showDiyStep('diyStep3')" data-i18n="workshop.diy.prev">上一步</button>
+							<button class="btn next-btn" id="diyToStep5" disabled onclick="showDiyStep('diyStep5')" data-i18n="workshop.diy.nextFire">下一步（烧制）</button>
+						</div>
+					</div>
+
+					<!-- 步骤5：入窑烧制 -->
+					<div class="step-panel" id="diyStep5">
+						<h3 class="step-title" data-i18n="workshop.diy.stepFire">第五步：入窑烧制</h3>
+						<div class="kiln-container">
+							<div class="kiln" id="diyKiln">
+								<div class="kiln-fire" id="diyFireAnim"></div>
+									<div class="final-product-container" id="diyFinalProduct" style="display:none;">
+										<div class="porcelain-stage">
+											<div class="clay-body shape-wash" id="finalClayBody"></div>
+											<div class="porcelain-shadow"></div>
+										</div>
+									<div class="product-card">
+										<h4 data-i18n="workshop.diy.infoTitle">成品信息</h4>
+										<p><span data-i18n="workshop.diy.shape">器型：</span><span id="productShape">汝窑洗</span></p>
+										<p><span data-i18n="workshop.diy.glaze">釉色：</span><span id="productColor">汝窑天青</span></p>
+										<p><span data-i18n="workshop.diy.pattern">纹饰：</span><span id="productPattern">冰裂纹</span></p>
+										<p class="product-poem" id="productPoem"></p>
+									</div>
+								</div>
+							</div>
+							<div id="diyResultText" style="display:none; font-size:16px; color:#5a4a3c;" data-i18n="workshop.diy.result">
+								烧制成功！您的专属宋瓷已完成~</div>
+							<div class="btn-group">
+								<button class="btn" id="diyFireBtn" data-i18n="workshop.diy.fire">开始烧制</button>
+								<button class="btn" id="diySaveBtn" style="display:none;" data-i18n="workshop.diy.save">保存成品</button>
+								<button class="btn" id="diyDownloadBtn" style="display:none;" data-i18n="workshop.diy.download">下载JPG</button>
+								<button class="btn" id="diyRestartBtn" style="display:none;" data-i18n="workshop.diy.restart">重新制作</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p data-i18n="footer.copyright">宋瓷五窑纪</p>
+		</div>
+
+		<script src="js/seal.js"></script>
+	<script src="js/workshop.js"></script>
+	
+		<script src="js/particles.js"></script>
+	
+	<script src="js/reveal.js?v=3"></script>
+</body>
+</html>

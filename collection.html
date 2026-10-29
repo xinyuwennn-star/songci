@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>我的收藏 | 宋瓷五窑纪</title>
+		<link rel="stylesheet" href="css/common.css?v=2">
+		<link rel="stylesheet" href="css/collection.css">
+		<script src="js/lang-common.js"></script>
+		<script src="js/lang-collection.js"></script>
+		<script src="js/i18n.js"></script>
+		<script src="js/globalErrorHandler.js"></script>
+			<link rel="stylesheet" href="css/responsive.css">
+	</head>
+	<body>
+		<div class="nav-logo-bar">
+			<div class="nav-logo" data-i18n="brand.name">宋瓷五窑纪</div>
+		</div>
+
+		<!-- 功能导航栏（与分享页一致） -->
+		<div class="nav-menu-bar">
+			<div class="nav-menu">
+				<a href="index.html" data-i18n="nav.home">首页</a>
+				<div class="nav-dropdown dropdown-wuyaos">
+					<a href="#" data-i18n="nav.kilns">五大名窑</a>
+					<div class="dropdown-content">
+						<a href="ruyao.html" data-i18n="nav.ruyao">汝窑</a>
+						<a href="guanyao.html" data-i18n="nav.guanyao">官窑</a>
+						<a href="geyao.html" data-i18n="nav.geyao">哥窑</a>
+						<a href="junyao.html" data-i18n="nav.junyao">钧窑</a>
+						<a href="dingyao.html" data-i18n="nav.dingyao">定窑</a>
+					</div>
+				</div>
+				<a href="workshop.html" data-i18n="nav.workshop">宋瓷工坊</a>
+				<a href="share.html" data-i18n="nav.share">瓷友分享</a>
+				<a href="heritage.html" data-i18n="nav.heritage">非遗传承</a>
+				<div class="nav-dropdown dropdown-more">
+					<a href="#" data-i18n="nav.more">更多</a>
+					<div class="dropdown-content">
+						<a href="funfact.html" data-i18n="nav.funfact">窑口冷知识</a>
+						<a href="collection.html" data-i18n="nav.collection">我的收藏</a>
+						<a href="contact.html" data-i18n="nav.contact">联系我们</a>
+					</div>
+				</div>
+				<button type="button" class="lang-toggle" id="langToggle">EN</button>
+			</div>
+		</div>
+
+		<!-- 收藏页面主体 -->
+		<div class="collection-container">
+			<h2 class="collection-title" data-i18n="collection.title">我的收藏</h2>
+			<p class="collection-desc" data-i18n="collection.desc">收藏你喜爱的瓷友作品，随时查看灵感～</p>
+
+			<!-- 收藏为空提示（默认隐藏，无收藏时显示） -->
+			<div class="empty-collection" id="emptyCollection">
+				<p data-i18n="collection.emptyTitle">暂无收藏内容</p>
+				<a href="share.html" class="go-share-btn" data-i18n="collection.goShare">去瓷友分享区逛逛</a>
+			</div>
+
+			<!-- 收藏作品展示区 -->
+			<div class="collections-area" id="collectionsArea">
+				<!-- 收藏作品卡片会通过JS动态渲染，初始示例收藏（模拟已收藏2件） -->
+				<div class="collection-card">
+					<div class="collection-card-header">
+						<button class="uncollect-btn" data-id="1" data-i18n="collection.uncollect">取消收藏</button>
+					</div>
+					<img src="img/瓷友分享2.png" class="collection-img" alt="收藏作品1">
+					<div class="collection-info">
+						<p class="collection-author" data-i18n="collection.demo1.author">@大宋瓷迷</p>
+						<p class="collection-desc" data-i18n="collection.demo1.desc">瓷器消消乐通关，太有成就感了！每一块都对应真实哥窑的开片肌理，细节拉满～</p>
+						<span class="collect-time"><span data-i18n="collection.collectedAt">收藏于</span> 2026-01-10</span>
+					</div>
+				</div>
+				<div class="collection-card">
+					<div class="collection-card-header">
+						<button class="uncollect-btn" data-id="2" data-i18n="collection.uncollect">取消收藏</button>
+					</div>
+					<img src="img/花卉纹.png" class="collection-img" alt="收藏作品2">
+					<div class="collection-info">
+						<p class="collection-author" data-i18n="collection.demo2.author">@纹样设计师</p>
+						<p class="collection-desc" data-i18n="collection.demo2.desc">原创宋瓷缠枝莲纹，参考了宋代定窑的印花工艺，把传统纹样做了简化设计，分享给大家~</p>
+						<span class="collect-time"><span data-i18n="collection.collectedAt">收藏于</span> 2026-01-08</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p data-i18n="footer.copyright">宋瓷五窑纪</p>
+		</div>
+
+		<!-- 提示弹窗 -->
+		<div class="toast" id="toast">操作成功</div>
+
+		<script>
+			// 快捷取翻译
+			function __t(key) {
+				if (window.SongCiI18N && typeof window.SongCiI18N.t === 'function') {
+					return window.SongCiI18N.t(key);
+				}
+				return key;
+			}
+
+			// 页面加载完成后执行
+			document.addEventListener('DOMContentLoaded', function() {
+				const collectionsArea = document.getElementById('collectionsArea');
+				const emptyCollection = document.getElementById('emptyCollection');
+				const uncollectBtns = document.querySelectorAll('.uncollect-btn');
+				const toast = document.getElementById('toast');
+
+				// 检查收藏数量，控制空状态显示
+				checkCollectionStatus();
+
+				// 取消收藏按钮事件（双向同步本地存储）
+				uncollectBtns.forEach(btn => {
+					btn.addEventListener('click', function() {
+						const card = this.closest('.collection-card');
+						const workId = this.getAttribute('data-id');
+
+						// 移除收藏卡片（动画效果）
+						card.style.opacity = '0';
+						setTimeout(() => {
+							card.remove();
+							// 更新本地存储（同步分享页状态）
+							updateCollectionsStorage(workId);
+							// 显示提示
+							showToast(__t('collection.uncollectSuccess'));
+							// 重新检查收藏状态
+							checkCollectionStatus();
+						}, 300);
+					});
+				});
+
+				// 检查收藏状态（有收藏显示卡片，无收藏显示空提示）
+				function checkCollectionStatus() {
+					const collectionCards = document.querySelectorAll('.collection-card');
+					if (collectionCards.length === 0) {
+						emptyCollection.style.display = 'flex';
+						collectionsArea.style.display = 'none';
+					} else {
+						emptyCollection.style.display = 'none';
+						collectionsArea.style.display = 'grid';
+					}
+				}
+
+				// 显示提示弹窗（无闪烁）
+				function showToast(msg) {
+					toast.textContent = msg;
+					toast.style.display = 'block';
+					toast.style.opacity = '1';
+					setTimeout(() => {
+						toast.style.opacity = '0';
+						setTimeout(() => {
+							toast.style.display = 'none';
+						}, 300);
+					}, 2000);
+				}
+
+				// 从本地存储加载收藏（持久化展示）
+				function loadCollectionsFromStorage() {
+					const collections = localStorage.getItem('songciCollections');
+					if (collections) {
+						const collectionList = JSON.parse(collections);
+						// 清空现有示例卡片
+						collectionsArea.innerHTML = '';
+						// 渲染本地存储的收藏
+						collectionList.forEach(item => {
+							const card = document.createElement('div');
+							card.className = 'collection-card';
+							card.innerHTML = `
+                    <div class="collection-card-header">
+                        <button class="uncollect-btn" data-id="${item.id}">${__t('collection.uncollect')}</button>
+                    </div>
+                    <img src="${item.imgSrc}" class="collection-img" alt="收藏作品${item.id}" onerror="this.onerror=null;this.src='img/汝.jpg';">
+                    <div class="collection-info">
+                        <p class="collection-author">${item.author}</p>
+                        <p class="collection-desc">${item.desc}</p>
+                        <span class="collect-time">${__t('collection.collectedAt')} ${item.time}</span>
+                    </div>
+                `;
+							collectionsArea.appendChild(card);
+							// 给新卡片绑定取消收藏事件
+							card.querySelector('.uncollect-btn').addEventListener('click', function() {
+								const workId = this.getAttribute('data-id');
+								card.style.opacity = '0';
+								setTimeout(() => {
+									card.remove();
+									// 更新本地存储
+									updateCollectionsStorage(workId);
+									showToast(__t('collection.uncollectSuccess'));
+									checkCollectionStatus();
+								}, 300);
+							});
+						});
+						checkCollectionStatus();
+					}
+				}
+
+				// 更新本地存储（删除取消收藏的作品）
+				function updateCollectionsStorage(removeId) {
+					const collections = localStorage.getItem('songciCollections');
+					if (collections) {
+						let collectionList = JSON.parse(collections);
+						collectionList = collectionList.filter(item => item.id !== removeId);
+						localStorage.setItem('songciCollections', JSON.stringify(collectionList));
+					}
+				}
+
+				// 启用本地存储加载（持久化收藏数据）
+				loadCollectionsFromStorage();
+
+				// 语言切换时重新渲染收藏卡片（按钮与时间前缀跟随语言）
+				window.addEventListener('langchange', function() {
+					const collections = localStorage.getItem('songciCollections');
+					if (collections) {
+						const collectionList = JSON.parse(collections);
+						collectionsArea.innerHTML = '';
+						collectionList.forEach(item => {
+							const card = document.createElement('div');
+							card.className = 'collection-card';
+							card.innerHTML = `
+                    <div class="collection-card-header">
+                        <button class="uncollect-btn" data-id="${item.id}">${__t('collection.uncollect')}</button>
+                    </div>
+                    <img src="${item.imgSrc}" class="collection-img" alt="收藏作品${item.id}" onerror="this.onerror=null;this.src='img/汝.jpg';">
+                    <div class="collection-info">
+                        <p class="collection-author">${item.author}</p>
+                        <p class="collection-desc">${item.desc}</p>
+                        <span class="collect-time">${__t('collection.collectedAt')} ${item.time}</span>
+                    </div>
+                `;
+							collectionsArea.appendChild(card);
+							card.querySelector('.uncollect-btn').addEventListener('click', function() {
+								const workId = this.getAttribute('data-id');
+								card.style.opacity = '0';
+								setTimeout(() => {
+									card.remove();
+									updateCollectionsStorage(workId);
+									showToast(__t('collection.uncollectSuccess'));
+									checkCollectionStatus();
+								}, 300);
+							});
+						});
+						checkCollectionStatus();
+					}
+				});
+			});
+		</script>
+	
+		<script src="js/seal.js"></script>
+		<script src="js/particles.js"></script>
+	
+	<script src="js/reveal.js?v=3"></script>
+</body>
+</html>

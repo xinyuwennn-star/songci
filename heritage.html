@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>非遗传承 | 宋瓷五窑纪</title>
+		<link rel="stylesheet" href="css/common.css?v=2">
+		<link rel="stylesheet" href="css/heritage.css">
+		<script src="js/lang-common.js"></script>
+		<script src="js/lang-heritage.js"></script>
+		<script src="js/i18n.js"></script>
+		<script src="js/globalErrorHandler.js"></script>
+			<link rel="stylesheet" href="css/responsive.css">
+	</head>
+	<body>
+		<div class="nav-logo-bar">
+			<div class="nav-logo" data-i18n="brand.name">宋瓷五窑纪</div>
+		</div>
+		<!-- 功能导航栏：悬浮在轮播图下方 -->
+		<div class="nav-menu-bar">
+			<div class="nav-menu">
+				<a href="index.html" data-i18n="nav.home">首页</a>
+				<div class="nav-dropdown dropdown-wuyaos">
+					<a href="#" data-i18n="nav.kilns">五大名窑</a>
+					<div class="dropdown-content">
+						<a href="ruyao.html" data-i18n="nav.ruyao">汝窑</a>
+						<a href="guanyao.html" data-i18n="nav.guanyao">官窑</a>
+						<a href="geyao.html" data-i18n="nav.geyao">哥窑</a>
+						<a href="junyao.html" data-i18n="nav.junyao">钧窑</a>
+						<a href="dingyao.html" data-i18n="nav.dingyao">定窑</a>
+					</div>
+				</div>
+				<a href="workshop.html" data-i18n="nav.workshop">宋瓷工坊</a>
+				<a href="share.html" data-i18n="nav.share">瓷友分享</a>
+				<a href="heritage.html" data-i18n="nav.heritage">非遗传承</a>
+				<div class="nav-dropdown dropdown-more">
+					<a href="#" data-i18n="nav.more">更多</a>
+					<div class="dropdown-content">
+						<a href="funfact.html" data-i18n="nav.funfact">窑口冷知识</a>
+						<a href="collection.html" data-i18n="nav.collection">我的收藏</a>
+						<a href="contact.html" data-i18n="nav.contact">联系我们</a>
+
+
+					</div>
+				</div>
+				<button type="button" class="lang-toggle" id="langToggle">EN</button>
+			</div>
+		</div>
+
+		<!-- 非遗传承主体容器 -->
+		<div class="heritage-container">
+			<!-- 头部：博物馆分栏式展品解说轮播 -->
+			<div class="heritage-header">
+				<div class="museum-stage">
+					<!-- 左侧大图 -->
+					<div class="museum-visual" id="museumVisual">
+						<div class="m-slide active" style="background-image:url('img/汝窑.jpg')"></div>
+						<div class="m-slide" style="background-image:url('img/定窑2.jpg')"></div>
+						<div class="m-slide" style="background-image:url('img/汝窑5.jpg')"></div>
+						<div class="m-slide" style="background-image:url('img/钧窑4.jpg')"></div>
+						<div class="m-slide" style="background-image:url('img/汝窑2.jpg')"></div>
+						<div class="visual-shade"></div>
+					</div>
+					<!-- 右侧解说面板 -->
+					<div class="museum-panel">
+						<div class="panel-inner" id="panelInner">
+							<span class="panel-kicker" data-i18n="heritage.headerTitle">非遗传承 · 窑火千年</span>
+							<div class="panel-seq" id="panelSeq">壹</div>
+							<h2 class="panel-name" id="panelName" data-i18n="heritage.carousel.select">原料甄选</h2>
+							<p class="panel-desc" id="panelDesc" data-i18n="heritage.carousel.desc1">选取天然瓷石与高岭土，反复淘洗、经年陈腐，方能成就胎土的细腻温润。</p>
+							<div class="panel-progress" id="panelProgress">
+								<span class="pbar active"></span>
+								<span class="pbar"></span>
+								<span class="pbar"></span>
+								<span class="pbar"></span>
+								<span class="pbar"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 箭头 -->
+				<button class="hero-btn prev-btn" id="prevBtn" aria-label="上一张">‹</button>
+				<button class="hero-btn next-btn" id="nextBtn" aria-label="下一张">›</button>
+			</div>
+
+			<!-- 非遗内容区域 -->
+			<div class="heritage-content">
+				<!-- 技艺传承模块（补充详细素材） -->
+				<div class="skill-module">
+					<h2 class="content-title" data-i18n="heritage.skillTitle">宋瓷复刻技艺传承</h2>
+					<p class="skill-intro" data-i18n="heritage.skillIntro">
+						宋代五大名瓷的烧制技艺曾一度失传，历经当代匠人数十年的潜心钻研，通过对传世珍品的成分分析、工艺复原，终于让千年窑火重燃。如今，宋瓷烧制技艺已被列入国家级非物质文化遗产名录，成为中华优秀传统文化传承的重要载体。复刻宋瓷需历经原料甄选、手工拉坯、施釉烧制、精细打磨四大核心环节，每个步骤都需严格遵循宋代工艺标准，方能还原宋瓷的风骨与神韵。
+					</p>
+					<div class="skill-step">
+						<div class="step-card">
+							<h2 class="step-title" data-i18n="heritage.step1.title">原料甄选：胎釉根基</h2>
+							<p class="step-desc" data-i18n="heritage.step1.desc">
+								参照宋代窑址出土标本，从汝州、禹州、杭州等古窑原产地甄选原料（汝窑用汝州高岭土+玛瑙石，官窑用杭州紫金土）；通过X射线荧光光谱分析还原古料矿物配比，经淘洗、陈腐、揉泥等工序，让胎土具备宋代瓷胎的致密性与可塑性，釉料反复调试熔融温度和呈色效果。
+							</p>
+						</div>
+						<div class="step-card">
+							<h2 class="step-title" data-i18n="heritage.step2.title">手工拉坯：器型风骨</h2>
+							<p class="step-desc" data-i18n="heritage.step2.desc">
+								沿用宋代纯手工拉坯技法，轮盘上凭手感把控器型弧度、比例与胎壁厚度（如汝窑盘“芒口”处理、哥窑瓶肩颈过渡）；拉坯后经利坯、修坯精细塑形，阴干至半干后素烧，增强坯体强度，确保后续施釉、烧制不易变形。
+							</p>
+						</div>
+						<div class="step-card">
+							<h2 class="step-title" data-i18n="heritage.step3.title">施釉烧制：釉色灵魂</h2>
+							<p class="step-desc" data-i18n="heritage.step3.desc">
+								采用宋代对应施釉技法（汝窑满釉裹足支烧、官窑多次施釉、钧窑窑变施釉），通过蘸釉、荡釉、喷釉控制釉层厚度；入柴窑以还原焰烧制，精准调控升温曲线（汝窑需从室温升至1260℃，保温4小时）、窑内气氛，还原“雨过天青”“金丝铁线”等经典釉色。
+							</p>
+						</div>
+						<div class="step-card">
+							<h2 class="step-title" data-i18n="heritage.step4.title">精细打磨：温润质感</h2>
+							<p class="step-desc" data-i18n="heritage.step4.desc">
+								出窑后手工去除支钉痕、窑粘等瑕疵，用细砂纸从粗到细打磨圈足、口沿；最后通过“擦釉”工艺提亮釉面，去除烧制过程中可能产生的微小气泡和杂质，赋予器物“光致茂美、温润如玉”的宋代瓷特有的触感与光泽。
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- 匠人故事模块（补充8位传承人完整素材） -->
+				<div class="craftsman-module">
+					<h2 class="content-title" data-i18n="heritage.craftsmanTitle">非遗传承人故事</h2>
+					<p class="craftsman-intro" data-i18n="heritage.craftsmanIntro">
+						宋瓷技艺的传承，离不开一代代非遗传承人的坚守与创新。他们或出身制瓷世家，或半路投身钻研，数十年如一日深耕工艺，破解古代技术密码，复刻经典器型，同时推动宋瓷技艺与现代生活融合，让千年窑火在当代焕发生机。
+					</p>
+					<div class="craftsman-list">
+						<!-- 汝窑传承人 -->
+						<div class="craftsman-card">
+							<img src="img/朱文立.jpg" class="craftsman-img" alt="朱文立">
+							<div class="craftsman-info">
+								<h3 class="craftsman-name"><span data-i18n="heritage.c1.name">朱文立</span> <span class="kiln-tag" data-i18n="heritage.tagRu">汝窑</span></h3>
+								<p class="craftsman-identity" data-i18n="heritage.c1.identity">第四批国家级非物质文化遗产汝瓷烧制技艺代表性传承人</p>
+								<p class="craftsman-desc" data-i18n="heritage.c1.desc">
+									1950年生于汝州，1970年投身汝瓷研究，师从汝瓷老艺人李国桢。耗时20余年分析汝窑窑址标本，1987年成功烧制符合宋代特征的汝瓷天青釉产品，破解“玛瑙入釉”“满釉支烧”技术密码；复刻汝窑盘、瓶、洗等经典器型，作品被故宫博物院、中国国家博物馆收藏，出版《汝窑的发现与研究》，建立汝瓷工艺系统理论体系。
+								</p>
+							</div>
+						</div>
+						<div class="craftsman-card">
+							<img src="img/孟玉松.jpg" class="craftsman-img" alt="孟玉松">
+							<div class="craftsman-info">
+								<h3 class="craftsman-name"><span data-i18n="heritage.c2.name">孟玉松</span> <span class="kiln-tag" data-i18n="heritage.tagRu">汝窑</span></h3>
+								<p class="craftsman-identity" data-i18n="heritage.c2.identity">第四批国家级非物质文化遗产汝瓷烧制技艺代表性传承人</p>
+								<p class="craftsman-desc" data-i18n="heritage.c2.desc">
+									1942年生于汝州，1961年进入汝瓷厂参与汝瓷恢复工作，深耕60余年。率先将硅酸盐化学理论应用于汝瓷釉料研究，精准还原天青、天蓝、月白等釉色呈色机理；擅长传统造型设计，作品《汝窑天青釉盘》《汝窑玉壶春瓶》被中国工艺美术馆收藏；创办汝瓷传习所，培养超百名传承人，推动汝瓷技艺规模化传承。
+								</p>
+							</div>
+						</div>
+						<!-- 官窑/哥窑传承人 -->
+						<div class="craftsman-card">
+							<img src="img/王东霞.jpg" class="craftsman-img" alt="王东霞">
+							<div class="craftsman-info">
+								<h3 class="craftsman-name"><span data-i18n="heritage.c3.name">王东霞</span><span class="kiln-tag" data-i18n="heritage.tagGuan">官窑</span></h3>
+								<p class="craftsman-identity" data-i18n="heritage.c3.identity">省级非物质文化遗产北宋官窑烧制技艺代表性传承人，北宋官瓷技艺传承与推广核心人物。</p>
+								<p class="craftsman-desc" data-i18n="heritage.c3.desc">
+									生于开封官窑技艺世家，师从北宋官瓷复烧名家，深耕北宋官窑烧制技艺研究与实践四十余年。主导复刻出贯耳瓶、琮式瓶等数十种北宋官窑经典器型，作品被中国陶瓷博物馆、河南博物院等机构收藏；致力于官窑技艺的普及传承，培养了大批青年陶艺从业者；编撰《北宋官窑烧制技艺实操图谱》，为官窑技艺的系统传承提供了理论与实操依据。
+								</p>
+							</div>
+						</div>
+						<div class="craftsman-card">
+							<img src="img/叶克伟.jpg" class="craftsman-img" alt="叶克伟">
+							<div class="craftsman-info">
+								<h3 class="craftsman-name"><span data-i18n="heritage.c4.name">叶克伟</span> <span class="kiln-tag" data-i18n="heritage.tagGuanGe">官窑/哥窑</span></h3>
+								<p class="craftsman-identity" data-i18n="heritage.c4.identity">浙江省非遗南宋官窑瓷制作技艺传承人，“叶氏哥窑”第三代传人</p>
+								<p class="craftsman-desc" data-i18n="heritage.c4.desc">
+									1968年生于杭州，自幼跟随父亲叶德奎学习哥窑与官窑烧制技艺，长期研究杭州老虎洞、郊坛下南宋官窑窑址遗存。还原南宋官窑“紫口铁足”“聚沫攒珠”的工艺特征，攻克哥窑“金丝铁线”开片的人工控制技术；复刻的南宋官窑贯耳瓶、哥窑鱼耳炉等作品，被浙江省博物馆收藏；建立“叶氏哥窑”非遗工坊，系统整理哥窑烧制技艺的口述史与实操技法。
+								</p>
+							</div>
+						</div>
+						<!-- 钧窑传承人 -->
+						<div class="craftsman-card">
+							<img src="img/苗长强.jpg" class="craftsman-img" alt="苗长强">
+							<div class="craftsman-info">
+								<h3 class="craftsman-name"><span data-i18n="heritage.c5.name">苗长强</span> <span class="kiln-tag" data-i18n="heritage.tagJun">钧窑</span></h3>
+								<p class="craftsman-identity" data-i18n="heritage.c5.identity">第五批国家级非物质文化遗产钧瓷烧制技艺代表性传承人</p>
+								<p class="craftsman-desc" data-i18n="heritage.c5.desc">
+									1962年生于禹州神垕镇，出身钧瓷世家，师从父亲苗锡锦（钧瓷泰斗），深耕40余年。复刻宋钧窑鼓钉洗、出戟尊等经典器型，精准还原“海棠红”“玫瑰紫”窑变釉色；首创“煤烧钧瓷还原焰”烧制工艺，提升仿古钧瓷质感与呈色稳定性；作品《钧窑四海升平尊》被人民大会堂收藏，推动宫廷工艺与民间传承融合。
+								</p>
+							</div>
+						</div>
+						<div class="craftsman-card">
+							<img src="img/张洋洋.jpg" class="craftsman-img" alt="张洋洋">
+							<div class="craftsman-info">
+								<h3 class="craftsman-name"><span data-i18n="heritage.c6.name">张洋洋</span> <span class="kiln-tag" data-i18n="heritage.tagJun">钧窑</span></h3>
+								<p class="craftsman-identity" data-i18n="heritage.c6.identity">禹州市级非物质文化遗产钧瓷烧制技艺传承人</p>
+								<p class="craftsman-desc" data-i18n="heritage.c6.desc">
+									1990年生于禹州神垕镇，师承苗长强，是钧瓷技艺青年代表。专注钧瓷天青乳光釉创新烧制，将现代设计理念融入传统器型；作品《龙头樽》《荷口瓶》获中国陶瓷工业协会“大地奖”金奖；通过短视频、直播推广钧瓷技艺，设计钧瓷文创产品，让非遗贴近年轻受众，拓展现代应用场景。
+								</p>
+							</div>
+						</div>
+						<!-- 定窑传承人 -->
+						<div class="craftsman-card">
+							<img src="img/庞永辉.jpg" class="craftsman-img" alt="庞永辉">
+							<div class="craftsman-info">
+								<h3 class="craftsman-name"><span data-i18n="heritage.c7.name">庞永辉</span> <span class="kiln-tag" data-i18n="heritage.tagDing">定窑</span></h3>
+								<p class="craftsman-identity" data-i18n="heritage.c7.identity">河北省非物质文化遗产定瓷烧制技艺代表性传承人</p>
+								<p class="craftsman-desc" data-i18n="heritage.c7.desc">
+									1973年生于曲阳，师承中国工艺美术大师陈文增，系统学习定瓷全流程工艺。突破定瓷“无大件”局限，成功拉制高100cm定瓷瓶，创中空、双层拉坯新工艺；复刻宋定窑白釉刻花梅瓶、孩儿枕，还原“白如玉、薄如纸、声如磬”特征；撰写《定瓷拉坯技艺图谱》，建立定瓷拉坯标准化教学体系。
+								</p>
+							</div>
+						</div>
+						<div class="craftsman-card">
+							<img src="img/刘辛广.jpg" class="craftsman-img" alt="刘辛广">
+							<div class="craftsman-info">
+								<h3 class="craftsman-name"><span data-i18n="heritage.c8.name">刘辛广</span> <span class="kiln-tag" data-i18n="heritage.tagDing">定窑</span></h3>
+								<p class="craftsman-identity" data-i18n="heritage.c8.identity">定州市非物质文化遗产定窑手工制瓷技艺传承人</p>
+								<p class="craftsman-desc" data-i18n="heritage.c8.desc">
+									1980年生于定州，深耕定瓷釉料配方与烧制工艺20余年。攻破定瓷白釉、酱釉、黑釉等6种传统釉色技术难题，复原“剔花”“印花”装饰技法；作品《定窑白釉刻花莲纹碗》获中国非遗博览会金奖；推动定瓷与日用陶瓷结合，设计茶具、餐具等文创产品，让传统技艺融入现代生活。
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 当代成果模块 -->
+				<div class="achievement-module">
+					<h2 class="content-title" data-i18n="heritage.achieveTitle">当代复刻成果</h2>
+					<p class="skill-intro" data-i18n="heritage.achieveIntro">
+						当代非遗匠人复刻的宋瓷作品，既严格遵循宋代工艺标准，保留传统韵味，又通过现代技术辅助优化，让千年瓷韵在当代绽放光彩。这些作品不仅成为博物馆收藏的珍品，更通过文创转化、国际交流等形式，成为文化传播的重要载体。
+					</p>
+					<div class="achievement-img">
+						<img src="img/当1.jpg" class="achievement-item" alt="汝窑天青釉洗复刻品" data-i18n-alt="heritage.achieve1">
+						<img src="img/当2.jpg" class="achievement-item" alt="哥窑金丝铁线瓶复刻品" data-i18n-alt="heritage.achieve2">
+						<img src="img/当3.jpg" class="achievement-item" alt="钧窑窑变海棠红尊复刻品" data-i18n-alt="heritage.achieve3">
+						<img src="img/当4 .jpg" class="achievement-item" alt="定窑白釉刻花莲纹碗复刻品" data-i18n-alt="heritage.achieve4">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 页脚 -->
+		<div class="footer">
+			<p data-i18n="footer.copyright">宋瓷五窑纪</p>
+		</div>
+
+		<!-- 博物馆分栏轮播JS -->
+		<script>
+			const mSlides = document.querySelectorAll('.m-slide');
+			const mSeq = document.getElementById('panelSeq');
+			const mName = document.getElementById('panelName');
+			const mDesc = document.getElementById('panelDesc');
+			const mInner = document.getElementById('panelInner');
+			const mBars = document.querySelectorAll('#panelProgress .pbar');
+			const prevBtn = document.getElementById('prevBtn');
+			const nextBtn = document.getElementById('nextBtn');
+
+			const stages = [
+				{ seq: '壹', nameKey: 'heritage.carousel.select', descKey: 'heritage.carousel.desc1' },
+				{ seq: '贰', nameKey: 'heritage.carousel.throw',   descKey: 'heritage.carousel.desc2' },
+				{ seq: '叁', nameKey: 'heritage.carousel.glaze',   descKey: 'heritage.carousel.desc3' },
+				{ seq: '肆', nameKey: 'heritage.carousel.polish',  descKey: 'heritage.carousel.desc4' },
+				{ seq: '伍', nameKey: 'heritage.carousel.display', descKey: 'heritage.carousel.desc5' }
+			];
+			let mIndex = 0, mTimer = null;
+
+			function renderStage(i, animate) {
+				mIndex = (i + stages.length) % stages.length;
+				const s = stages[mIndex];
+				mSlides.forEach((sl, idx) => sl.classList.toggle('active', idx === mIndex));
+				mBars.forEach((b, idx) => b.classList.toggle('active', idx === mIndex));
+				// 左右交替：偶数项图在右，奇数项图翻到左
+				document.querySelector('.museum-stage').classList.toggle('flipped', mIndex % 2 === 1);
+				if (animate) {
+					mInner.classList.remove('show');
+					void mInner.offsetWidth; // 重启动画
+				}
+				mSeq.textContent = s.seq;
+				mName.textContent = SongCiI18N.t(s.nameKey);
+				mDesc.textContent = SongCiI18N.t(s.descKey);
+				if (animate) requestAnimationFrame(() => mInner.classList.add('show'));
+				else mInner.classList.add('show');
+			}
+			function nextStage() { renderStage(mIndex + 1, true); }
+			function prevStage() { renderStage(mIndex - 1, true); }
+			function startAuto() { clearInterval(mTimer); mTimer = setInterval(nextStage, 5000); }
+
+			nextBtn.addEventListener('click', () => { nextStage(); startAuto(); });
+			prevBtn.addEventListener('click', () => { prevStage(); startAuto(); });
+			mBars.forEach((b, i) => b.addEventListener('click', () => { renderStage(i, true); startAuto(); }));
+			const mBox = document.querySelector('.heritage-header');
+			mBox.addEventListener('mouseenter', () => clearInterval(mTimer));
+			mBox.addEventListener('mouseleave', startAuto);
+
+			// 切换语言后同步面板文字
+			document.addEventListener('langchange', () => renderStage(mIndex, false));
+
+			renderStage(0, false);
+			startAuto();
+		</script>
+	
+		<script src="js/seal.js"></script>
+		<script src="js/particles.js"></script>
+	
+	<script src="js/reveal.js?v=3"></script>
+</body>
+</html>

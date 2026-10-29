@@ -1,0 +1,858 @@
+/* ============================================================
+ * 宋瓷五窑纪 · 全端适配样式（手机 / 平板 / 电脑）
+ * 本文件在 common.css 之后加载，统一覆盖各页面的固定尺寸与大字号
+ * 断点：>1024px 电脑默认 ｜ 768~1024 平板 ｜ 480~768 大屏手机 ｜ <480 手机
+ * ============================================================ */
+
+/* ===== 基础防溢出 ===== */
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+body {
+    overflow-x: hidden;
+}
+img {
+    max-width: 100%;
+}
+
+/* ============================================================
+ * 平板端（≤1024px）：收窄容器、缩小标题与间距
+ * ============================================================ */
+@media (max-width: 1024px) {
+
+    /* 品牌字与导航 */
+    .nav-logo {
+        font-size: 44px;
+        letter-spacing: 10px;
+    }
+    .nav-logo.fixed {
+        font-size: 32px;
+        letter-spacing: 6px;
+    }
+    .nav-menu {
+        gap: 32px;
+        max-width: 100%;
+        padding: 0 16px;
+    }
+    .nav-menu a, .nav-dropdown > a {
+        font-size: 18px;
+        padding: 6px 10px;
+    }
+
+    /* 首页轮播高度 */
+    .carousel {
+        height: 600px;
+    }
+    .carousel-title {
+        font-size: 28px;
+    }
+    .carousel-desc {
+        font-size: 16px;
+        max-width: 90%;
+    }
+
+    /* 首页卡片 */
+    .porcelain-card {
+        width: 300px;
+        height: auto;
+    }
+    .card-img {
+        height: 200px;
+    }
+    .list-title {
+        font-size: 32px;
+    }
+
+    /* 首页互动banner */
+    .quest-banner {
+        margin: 0 20px 40px;
+        padding: 32px 24px 28px;
+    }
+    .quest-banner-title {
+        font-size: 24px;
+        letter-spacing: 6px;
+    }
+    .quest-banner-card {
+        width: 280px;
+    }
+
+    /* 五窑详情页 */
+    .detail-container {
+        margin-top: 140px;
+    }
+    .detail-header {
+        height: 560px;
+        padding: 28px 24px 90px;
+    }
+    .header-title-ru, .header-title-ge, .header-title-jun,
+    .header-title-guan, .header-title-ding {
+        font-size: 48px;
+        margin-bottom: 0;
+    }
+    .porc-controls {
+        bottom: 12px;
+        gap: 8px;
+    }
+    .porc-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    .detail-content {
+        padding: 30px 24px;
+        gap: 28px;
+    }
+    .glaze-module {
+        padding: 30px 20px;
+        margin: 0 16px 20px;
+    }
+    .module-title {
+        font-size: 26px;
+    }
+    .pattern-module, .classic-module {
+        padding: 0 24px 30px;
+    }
+    .quiz-module {
+        padding: 30px 20px;
+        margin: 0 16px 20px;
+    }
+
+    /* 通用容器 */
+    .page-container {
+        width: 95%;
+        margin-top: 140px;
+        padding: 24px 20px;
+    }
+
+    /* 交互页容器 */
+    .kilnbox-container, .crackle-container {
+        margin-top: 150px;
+    }
+    .heritage-container, .collection-container {
+        margin-top: 140px;
+    }
+    .game-select-page, .game-page {
+        margin-top: 160px;
+    }
+
+    /* 非遗页 */
+    .heritage-header {
+        height: 480px;
+    }
+    .museum-panel {
+        padding: 0 32px;
+    }
+    .panel-name {
+        font-size: 30px;
+    }
+}
+
+/* ============================================================
+ * 手机端（≤768px）：导航横向滚动、轮播压扁、卡片单列堆叠
+ * ============================================================ */
+@media (max-width: 768px) {
+
+    /* --- 全局防横向滚动 --- */
+    body { overflow-x: hidden; }
+
+    /* --- 品牌logo 缩小 --- */
+    .nav-logo {
+        font-size: 26px;
+        letter-spacing: 4px;
+        top: 12px;
+        white-space: nowrap;
+    }
+    .nav-logo.fixed {
+        font-size: 22px;
+        letter-spacing: 2px;
+        top: 8px;
+    }
+    html[lang="en"] .nav-logo {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    html[lang="en"] .nav-logo.fixed {
+        font-size: 17px;
+    }
+
+    /* --- 导航栏：改为横向可滚动，不再换行多行 --- */
+    .nav-menu-bar {
+        top: 52px;
+        padding: 8px 0;
+    }
+    .nav-menu-bar.fixed {
+        top: 42px;
+    }
+    .nav-menu {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 0 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;          /* Firefox */
+        -ms-overflow-style: none;        /* IE/Edge */
+    }
+    .nav-menu::-webkit-scrollbar { display: none; }  /* Chrome/Safari */
+    .nav-menu a, .nav-dropdown > a {
+        font-size: 15px;
+        padding: 8px 12px;
+        white-space: nowrap;
+    }
+    html[lang="en"] .nav-menu a,
+    html[lang="en"] .nav-dropdown > a {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    /* 下拉菜单：在小屏上改为向下展开，宽度自适应 */
+    .dropdown-wuyaos .dropdown-content,
+    .dropdown-more .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transform: none;
+        min-width: 110px;
+    }
+    /* 触屏设备用 focus 也能展开下拉 */
+    .nav-dropdown:focus-within .dropdown-content {
+        display: block;
+    }
+
+    /* 语言切换按钮 */
+    .lang-toggle {
+        margin-left: 6px;
+        font-size: 12px;
+        padding: 4px 10px;
+        flex-shrink: 0;
+    }
+
+    /* --- 首页轮播 --- */
+    .carousel {
+        height: 380px;
+        margin-bottom: 30px;
+    }
+    .carousel-text {
+        bottom: 25px;
+        width: 92%;
+    }
+    .carousel-title {
+        font-size: 20px;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+        color: #d5ebe1 !important;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+    .carousel-desc {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #d5ebe1 !important;
+        text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+    }
+    .carousel-dot {
+        width: 9px;
+        height: 9px;
+    }
+
+    /* --- 首页名瓷卡片：单列 --- */
+    .porcelain-list {
+        padding: 20px 0;
+    }
+    .list-title {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    .card-wrap {
+        gap: 20px;
+    }
+    .card-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+    .porcelain-card {
+        width: 92%;
+        max-width: 380px;
+    }
+    .card-img {
+        height: 220px;
+    }
+    .card-name {
+        font-size: 20px;
+    }
+
+    /* --- 首页互动banner --- */
+    .quest-banner {
+        margin: 0 12px 30px;
+        padding: 26px 18px 22px;
+        border-radius: 12px;
+    }
+    .quest-banner::before {
+        font-size: 130px;
+        bottom: -40px;
+        left: 10px;
+    }
+    .quest-banner-title {
+        font-size: 19px;
+        letter-spacing: 3px;
+    }
+    .quest-banner-sub {
+        font-size: 12px;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+    }
+    .quest-banner-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+    .quest-banner-card {
+        width: 100%;
+        max-width: 400px;
+        padding: 18px 16px;
+    }
+    .quest-banner-card h3 {
+        font-size: 18px;
+    }
+    .quest-banner-card p {
+        font-size: 13px;
+    }
+    .qbp-slot {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    /* --- 穿越引子弹层 --- */
+    .story-modal-box {
+        margin: 0 16px;
+        padding: 32px 24px 28px;
+    }
+    .story-heading {
+        font-size: 24px;
+        letter-spacing: 3px;
+    }
+    .story-body {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+    .story-btn {
+        padding: 12px 28px;
+        font-size: 15px;
+    }
+
+    /* --- 五窑详情页 --- */
+    .detail-container {
+        margin-top: 110px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .detail-header {
+        height: 440px;
+        padding: 20px 16px 80px;
+    }
+    .header-title-ru, .header-title-ge, .header-title-jun,
+    .header-title-guan, .header-title-ding {
+        font-size: 30px;
+        margin-bottom: 0;
+    }
+    .porc-controls {
+        bottom: 10px;
+        gap: 6px;
+    }
+    .porc-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+        letter-spacing: 0;
+    }
+    .detail-content {
+        grid-template-columns: 1fr;
+        padding: 20px 16px;
+        gap: 20px;
+    }
+    .side-info {
+        padding: 20px 16px;
+    }
+    .side-title {
+        font-size: 20px;
+    }
+    .main-content {
+        font-size: 15px;
+    }
+    .content-title {
+        font-size: 22px;
+    }
+    .glaze-module {
+        padding: 24px 14px;
+        margin: 0 10px 16px;
+    }
+    .module-title {
+        font-size: 22px;
+        margin-bottom: 24px;
+    }
+    .pattern-module, .classic-module {
+        padding: 0 12px 24px;
+    }
+    .pattern-list {
+        width: 100%;
+        align-items: stretch !important;
+    }
+    .pattern-item {
+        flex-direction: column !important;
+        gap: 14px;
+        width: 100% !important;
+        align-self: stretch !important;
+    }
+    .pattern-img {
+        width: 100% !important;
+        height: 220px;
+    }
+    .pattern-info {
+        width: 100% !important;
+    }
+    .pattern-format {
+        padding: 14px;
+    }
+    .classic-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .classic-card {
+        width: 100%;
+        max-width: 400px;
+    }
+    .guide-area {
+        padding: 24px 16px;
+    }
+    .guide-btn {
+        width: 100%;
+        max-width: 280px;
+        margin: 8px auto;
+    }
+
+    /* --- 通用容器 --- */
+    .page-container {
+        width: 94%;
+        margin-top: 110px;
+        padding: 20px 16px;
+    }
+    .page-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    /* --- 页脚 --- */
+    .footer {
+        font-size: 14px;
+        letter-spacing: 4px;
+        text-indent: 4px;
+        padding: 18px 10px;
+    }
+
+    /* --- 窑变盲盒 --- */
+    .kilnbox-container {
+        margin-top: 110px;
+        padding: 0 12px;
+    }
+    .story-bar {
+        padding: 20px 18px;
+    }
+    .story-text {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+    .kb-title {
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
+    .kb-shape-list {
+        gap: 14px;
+    }
+    .kb-shape-item {
+        width: 45%;
+        max-width: 150px;
+        padding: 14px 8px 12px;
+    }
+    .kb-shape-item svg {
+        width: 80px;
+        height: 80px;
+    }
+    .kb-kiln {
+        width: 260px;
+        height: 230px;
+        transform: scale(0.85);
+        margin: 0 auto 10px;
+    }
+    .kb-temp {
+        width: 90%;
+        max-width: 300px;
+    }
+    .kb-result {
+        padding: 18px 14px;
+        gap: 18px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .kb-info {
+        max-width: 100%;
+        text-align: center;
+    }
+    .kb-piece-name {
+        font-size: 22px;
+    }
+    .kb-btn {
+        padding: 11px 24px;
+        font-size: 15px;
+    }
+
+    /* --- 开片实验室 --- */
+    .crackle-container {
+        margin-top: 110px;
+        padding: 0 12px;
+    }
+    .lab-wrap {
+        gap: 16px;
+    }
+    .lab-stage {
+        padding: 16px;
+    }
+    .lab-panel {
+        width: 100%;
+        padding: 20px 18px;
+    }
+    .lab-science {
+        padding: 20px 18px;
+    }
+    .lab-science h3 {
+        font-size: 18px;
+    }
+    .lab-science p {
+        font-size: 14px;
+    }
+
+    /* --- 工坊页 --- */
+    .game-select-page {
+        margin-top: 110px;
+        height: auto;
+        padding-bottom: 30px;
+    }
+    .main-title {
+        font-size: 26px;
+    }
+    .game-card-container {
+        gap: 16px;
+    }
+    .game-card {
+        width: 45%;
+        max-width: 180px;
+        height: auto;
+        min-height: 200px;
+        padding: 20px 10px;
+    }
+    .card-title {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    .card-icon {
+        font-size: 36px;
+    }
+    .card-desc {
+        font-size: 12px;
+    }
+    .game-page {
+        margin-top: 110px;
+    }
+    .game-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    .game-title {
+        font-size: 22px;
+    }
+    .lapi-container {
+        height: 300px;
+    }
+    .lapi-wheel {
+        width: 220px;
+        height: 220px;
+    }
+    .clay-body {
+        width: 120px;
+        height: 160px;
+    }
+    .kiln {
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        min-height: 250px;
+        margin-bottom: 0;
+        align-items: flex-start;
+    }
+    .kiln::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 250px;
+        border-radius: 50% 50% 12px 12px / 60% 60% 12px 12px;
+    }
+    .final-product-container {
+        width: 100%;
+        padding-top: 6px;
+    }
+    .porcelain-stage {
+        width: 170px;
+        height: 170px;
+    }
+    .final-product-container .clay-body {
+        width: 130px !important;
+        height: 170px !important;
+    }
+    .porcelain-glaze {
+        width: 110px;
+        height: 140px;
+    }
+    .porcelain-pattern {
+        width: 115px;
+        height: 140px;
+    }
+    .porcelain-shadow {
+        width: 105px;
+        bottom: 6px;
+    }
+    .product-card {
+        max-width: 100%;
+        padding: 12px 14px;
+        font-size: 13px;
+        margin: 14px auto 0;
+    }
+    .product-card h4 {
+        font-size: 14px;
+    }
+    .kiln-container .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 16px;
+    }
+    .kiln-container .btn {
+        margin: 0;
+    }
+    .pattern-design-area {
+        flex-direction: column;
+        align-items: center;
+    }
+    .pattern-options {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        min-height: auto;
+    }
+    .pattern-item {
+        width: 45%;
+        min-width: 140px;
+    }
+    .pattern-preview {
+        width: 100%;
+        max-width: 320px;
+        height: 320px;
+    }
+    .shape-item {
+        width: 30%;
+        min-width: 90px;
+    }
+    .shape-img {
+        width: 90px;
+        height: 90px;
+    }
+    .color-sliders {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .slider-item input[type="range"] {
+        width: 160px;
+    }
+
+    /* --- 非遗页 --- */
+    .heritage-container {
+        margin-top: 110px;
+    }
+    .heritage-header {
+        height: 420px;
+    }
+    .museum-panel {
+        padding: 20px;
+    }
+    .panel-seq {
+        font-size: 44px;
+    }
+    .panel-name {
+        font-size: 22px;
+    }
+    .panel-desc {
+        font-size: 14px;
+    }
+    .heritage-content {
+        padding: 24px 16px;
+    }
+    .step-card, .craftsman-card, .achievement-module {
+        padding: 18px 16px;
+    }
+
+    /* --- 收藏页 --- */
+    .collection-container {
+        margin-top: 110px;
+        padding: 20px 14px;
+    }
+
+    /* --- 冷知识页 --- */
+    .funfact-card img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+
+    /* --- 瓷友分享卡片：防止白色背景溢出 --- */
+    .share-container {
+        padding: 16px 12px;
+    }
+    .work-card {
+        width: 100%;
+        overflow: hidden;
+    }
+    .work-img {
+        width: 100%;
+    }
+
+    /* --- 简介参考图：手机端只显示第一张 --- */
+    .img-box .detail-img:nth-child(n+2) {
+        display: none;
+    }
+    .img-box .detail-img {
+        width: 100%;
+        max-width: 400px;
+    }
+    .img-box-ding .detail-img:nth-child(n+2) {
+        display: none;
+    }
+    .img-box-ding .detail-img {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* ============================================================
+ * 小手机端（≤480px）：进一步压缩字号与间距
+ * ============================================================ */
+@media (max-width: 480px) {
+
+    .nav-logo {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+    .nav-logo.fixed {
+        font-size: 19px;
+    }
+    .nav-menu-bar {
+        top: 44px;
+    }
+    .nav-menu-bar.fixed {
+        top: 36px;
+    }
+    .nav-menu a, .nav-dropdown > a {
+        font-size: 14px;
+        padding: 7px 10px;
+    }
+
+    .carousel {
+        height: 300px;
+    }
+    .carousel-text {
+        bottom: 20px;
+    }
+    .carousel-title {
+        font-size: 17px;
+        color: #d5ebe1 !important;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+    .carousel-desc {
+        font-size: 12px;
+        color: #d5ebe1 !important;
+        text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+    }
+
+    .list-title {
+        font-size: 24px;
+    }
+    .card-img {
+        height: 180px;
+    }
+
+    .detail-header {
+        height: 380px;
+        padding: 16px 12px 70px;
+    }
+    .header-title-ru, .header-title-ge, .header-title-jun,
+    .header-title-guan, .header-title-ding {
+        font-size: 26px;
+        margin-bottom: 0;
+    }
+
+    .page-container,
+    .detail-container,
+    .kilnbox-container,
+    .crackle-container,
+    .heritage-container,
+    .collection-container,
+    .share-container,
+    .game-select-page,
+    .game-page {
+        margin-top: 100px;
+    }
+
+    .story-modal-box {
+        padding: 24px 18px;
+    }
+    .story-heading {
+        font-size: 20px;
+    }
+
+    .footer {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    /* 工坊卡片两列变一列 */
+    .game-card {
+        width: 80%;
+        max-width: 220px;
+    }
+
+    /* 窑炉再缩小 */
+    .kb-kiln {
+        transform: scale(0.72);
+        margin-bottom: -20px;
+    }
+}
+
+/* ============================================================
+ * 横屏手机 / 矮屏设备：减少轮播与页头高度
+ * ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .carousel {
+        height: 280px;
+    }
+    .detail-header {
+        height: 240px;
+    }
+    .heritage-header {
+        height: 260px;
+    }
+}

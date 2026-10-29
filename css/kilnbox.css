@@ -1,0 +1,262 @@
+/* ============================================================
+ * 窑变盲盒 kilnbox.css
+ * ============================================================ */
+.kilnbox-container {
+    max-width: 1100px;
+    margin: 200px auto 40px;
+    padding: 0 24px;
+}
+/* 剧情引子 */
+.story-bar {
+    background: linear-gradient(135deg, rgba(26,60,52,0.92), rgba(42,84,72,0.88));
+    border-radius: 12px;
+    padding: 28px 34px;
+    margin-bottom: 36px;
+    box-shadow: 0 4px 18px rgba(26,60,52,0.25);
+    position: relative;
+    overflow: hidden;
+}
+.story-bar::before {
+    content: '窯';
+    position: absolute;
+    right: 18px;
+    top: -28px;
+    font-size: 150px;
+    color: rgba(255,255,255,0.05);
+    font-family: "SimSun", serif;
+}
+.story-text {
+    color: #e8f0ec;
+    font-size: 17px;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+.story-text.sub {
+    color: #f2a365;
+    font-size: 15px;
+    margin-top: 6px;
+    letter-spacing: 3px;
+}
+/* 步骤面板 */
+.kb-step { display: none; animation: kbFade .5s ease; }
+.kb-step.active { display: block; }
+@keyframes kbFade {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.kb-title {
+    text-align: center;
+    font-size: 26px;
+    color: #1a3c34;
+    letter-spacing: 6px;
+    margin: 34px 0 26px;
+}
+.kb-hint {
+    text-align: center;
+    color: #7a6a58;
+    font-size: 15px;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+/* 选坯 */
+.kb-shape-list {
+    display: flex;
+    justify-content: center;
+    gap: 34px;
+    flex-wrap: wrap;
+    margin-bottom: 34px;
+}
+.kb-shape-item {
+    width: 168px;
+    padding: 22px 12px 16px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    cursor: pointer;
+    text-align: center;
+    transition: all .3s ease;
+    border: 3px solid transparent;
+}
+.kb-shape-item:hover { transform: translateY(-6px); box-shadow: 0 8px 22px rgba(0,0,0,0.14); }
+.kb-shape-item.selected { border-color: #f2a365; background: #fdf8f1; }
+.kb-shape-item svg {
+    width: 108px;
+    height: 108px;
+    fill: #e9e2d5;
+    stroke: #b0a48e;
+    stroke-width: 1.5;
+}
+.kb-shape-item.selected svg { fill: #d9cdb6; }
+.kb-shape-item p { margin-top: 10px; color: #5a4a3c; font-size: 16px; letter-spacing: 2px; }
+/* 按钮 */
+.kb-btn-group { text-align: center; margin: 10px 0 30px; }
+/* 底部导航栏：页面结尾，开窑后显示 */
+.kb-bottom-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 40px auto 48px;
+}
+.kb-btn {
+    padding: 13px 36px;
+    font-size: 17px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #e8e0d2;
+    color: #5a4a3c;
+    letter-spacing: 3px;
+    transition: all .3s ease;
+}
+.kb-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.kb-btn.primary { background: #1a3c34; color: #f0f5f2; }
+.kb-btn.primary:hover:not(:disabled) { background: #245047; }
+.kb-btn:disabled { opacity: .45; cursor: not-allowed; }
+/* 窑炉 */
+.kb-kiln { position: relative; width: 340px; height: 300px; margin: 0 auto 26px; }
+.kb-kiln-body {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 42%, #6b5d4d 0%, #4c4238 55%, #332c25 100%);
+    border-radius: 46% 46% 12% 12% / 60% 60% 10% 10%;
+    box-shadow: inset 0 -14px 30px rgba(0,0,0,.5), 0 10px 26px rgba(0,0,0,.3);
+}
+.kb-kiln-mouth {
+    position: absolute;
+    left: 50%;
+    top: 34%;
+    transform: translateX(-50%);
+    width: 128px;
+    height: 96px;
+    border-radius: 50% / 46%;
+    background: #17120e;
+    overflow: hidden;
+    z-index: 2;
+}
+.kb-flame {
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 92px;
+    height: 92px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle at 50% 72%, #fff3c4 0%, #ffce54 26%, #ff8f3c 52%, #e24b1f 74%, rgba(160,30,10,0) 100%);
+    border-radius: 50% 50% 42% 42%;
+    filter: blur(1px);
+    animation: kbFlick .18s infinite alternate ease-in-out;
+}
+.kb-glow {
+    position: absolute;
+    inset: -30px;
+    background: radial-gradient(circle, rgba(255,150,50,0.55), rgba(255,90,20,0) 68%);
+    animation: kbGlow .9s infinite alternate ease-in-out;
+}
+@keyframes kbFlick {
+    from { transform: translateX(-50%) scale(1,1); }
+    to { transform: translateX(-52%) scale(1.06,1.12); }
+}
+@keyframes kbGlow {
+    from { opacity: .55; }
+    to { opacity: 1; }
+}
+.kb-smoke span {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(210,205,198,0.5);
+    filter: blur(4px);
+    animation: kbSmoke 2.6s infinite ease-out;
+}
+.kb-smoke span:nth-child(2) { animation-delay: .9s; margin-left: 12px; }
+.kb-smoke span:nth-child(3) { animation-delay: 1.7s; margin-left: -14px; }
+@keyframes kbSmoke {
+    0% { transform: translate(-50%,0) scale(.6); opacity: .7; }
+    100% { transform: translate(-30%,-110px) scale(2.6); opacity: 0; }
+}
+.kb-temp {
+    width: 340px;
+    margin: 0 auto 40px;
+    height: 26px;
+    background: #ddd5c6;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+}
+.kb-temp-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #f2a365, #e2541f);
+    border-radius: 14px;
+    transition: width .12s linear;
+}
+.kb-temp span {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.4);
+}
+/* 开窑结果 */
+.kb-result {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background: #fff;
+    border-radius: 14px;
+    padding: 36px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.kb-canvas-wrap { position: relative; }
+#kbCanvas {
+    background: linear-gradient(180deg, #f7f4ec, #efe9dc);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px #e2dac9;
+}
+.kb-flash {
+    position: absolute;
+    inset: 0;
+    background: #fff8ea;
+    border-radius: 10px;
+    opacity: 0;
+    pointer-events: none;
+}
+.kb-flash.go { animation: kbFlash .8s ease-out; }
+@keyframes kbFlash {
+    0% { opacity: 0; }
+    18% { opacity: .95; }
+    100% { opacity: 0; }
+}
+.kb-info { max-width: 380px; }
+.kb-piece-name {
+    font-size: 30px;
+    color: #1a3c34;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+.kb-rating { font-size: 17px; color: #c2491d; letter-spacing: 2px; margin-bottom: 14px; font-weight: bold; }
+.kb-desc { font-size: 15px; color: #6a5a48; line-height: 1.9; }
+.kb-trivia {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: #f4f0e6;
+    border-left: 4px solid #f2a365;
+    border-radius: 0 8px 8px 0;
+    color: #7a6a58;
+    font-size: 14px;
+    line-height: 1.8;
+}
+@media (max-width: 768px) {
+    .kilnbox-container { margin-top: 230px; }
+    .kb-result { padding: 20px; gap: 22px; }
+    #kbCanvas { width: 100%; height: auto; }
+}

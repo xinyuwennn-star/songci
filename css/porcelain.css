@@ -1,0 +1,1001 @@
+/* 汝窑页面主体容器*/
+.detail-container {
+    max-width: 1400px; /* 整体页面宽度增大 */
+    margin: 180px auto auto auto;
+    background-color: #f0f5f2;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+/* 页面头部 */
+.detail-header {
+    height: 800px;
+    background: linear-gradient(135deg, rgba(26,60,52,0.85), rgba(40,70,65,0.8));
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    overflow: hidden;
+}
+.detail-header h1 {
+    position: relative;
+    z-index: 2;
+}
+.header-title-ru {
+    font-size: 65px;
+    color: #9fd8dc;
+    font-weight: bold;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+	font-family: cursive;
+	margin-bottom: 30px;
+}
+.header-title-ge {
+    font-size: 65px;
+    color: #e0b561;
+    font-weight: bold;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+	font-family: cursive;
+	margin-bottom: 30px;
+}
+.header-title-jun {
+    font-size: 65px;
+    color: #dd93b3;
+    font-weight: bold;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+	font-family: cursive;
+	margin-bottom: 30px;
+}
+.header-title-guan {
+    font-size: 65px;
+    color: #a9cbd9;
+    font-weight: bold;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+	font-family: cursive;
+	margin-bottom: 30px;
+}
+.header-title-ding {
+    font-size: 65px;
+    color: #f6e7c8;
+    font-weight: bold;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+	font-family: cursive;
+	margin-bottom: 30px;
+}
+/* ===== 五窑顶部 3D 展区专属背景（统一温润低饱和灰调，明度相近，五窑各有倾向） =====
+   汝窑·天青 -> 灰豆青(去蓝) ｜ 官窑·粉青 -> 灰青 ｜ 哥窑·米黄 -> 茶褐
+   钧窑·玫瑰紫 -> 暖灰玫瑰(去紫) ｜ 定窑·象牙白 -> 暖灰褐 */
+.detail-header-ru {
+    background: linear-gradient(135deg, #557a72 0%, #73978e 100%);
+}
+.detail-header-guan {
+    background: linear-gradient(135deg, #5a737a 0%, #789299 100%);
+}
+.detail-header-ge {
+    background: linear-gradient(135deg, #6b5638 0%, #8a7350 100%);
+}
+.detail-header-jun {
+    background: linear-gradient(135deg, #6e5a62 0%, #8c7680 100%);
+}
+.detail-header-ding {
+    background: linear-gradient(135deg, #62594c 0%, #807666 100%);
+}
+/* ===== 五窑页导航栏配色：与本窑顶部背景同色（仅这五个页面，其他页面导航不变） ===== */
+body.page-ru .nav-menu-bar,
+body.page-ru .nav-menu-bar.fixed {
+    background-color: rgba(85, 122, 114, 0.82);
+}
+body.page-guan .nav-menu-bar,
+body.page-guan .nav-menu-bar.fixed {
+    background-color: rgba(90, 115, 122, 0.82);
+}
+body.page-ge .nav-menu-bar,
+body.page-ge .nav-menu-bar.fixed {
+    background-color: rgba(107, 86, 56, 0.82);
+}
+body.page-jun .nav-menu-bar,
+body.page-jun .nav-menu-bar.fixed {
+    background-color: rgba(110, 90, 98, 0.82);
+}
+body.page-ding .nav-menu-bar,
+body.page-ding .nav-menu-bar.fixed {
+    background-color: rgba(98, 89, 76, 0.82);
+}
+/* 五窑页顶部品牌大字“宋瓷五窑纪”同步使用本窑主色 */
+body.page-ru .nav-logo {
+    color: #557a72;
+}
+body.page-guan .nav-logo {
+    color: #5a737a;
+}
+body.page-ge .nav-logo {
+    color: #6b5638;
+}
+body.page-jun .nav-logo {
+    color: #6e5a62;
+}
+body.page-ding .nav-logo {
+    color: #62594c;
+}
+/* 核心内容区 */
+.detail-content {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1.5fr 2.5fr;
+    gap: 40px;
+}
+/* 侧边窑口档案 */
+.side-info {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+}
+.side-title {
+    font-size: 24px;
+    color: #1a3c34;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0d8cf;
+    padding-bottom: 10px;
+}
+.info-item {
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+.info-item strong {
+    display: inline-block;
+    width: 140px;
+    white-space: nowrap;
+    vertical-align: top;
+    color: #1a3c34;
+}
+.info-item span {
+    color: #666;
+}
+html[lang="en"] .info-item strong {
+    width: 175px;
+}
+/* 主体汝窑简介 */
+.main-content {
+    line-height: 1.8;
+    font-size: 17px;
+}
+.content-title {
+    font-size: 28px;
+    color: #1a3c34;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 20px;
+}
+.content-title::before {
+    content: "";
+    width: 8px;
+    height: 28px;
+    background-color: #f2a365;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.content-text {
+    margin-bottom: 25px;
+    text-indent: 2em;
+    color: #333;
+}
+/* 简介图片区 */
+.img-box {
+    display: flex;
+    gap: 25px;
+    margin: 30px 0;
+    justify-content: center;
+}
+.img-box-ding {
+    display: flex;
+    gap: 25px;
+    margin: 100px auto auto auto;
+    justify-content: center;
+}
+.detail-img {
+    width: 28%;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.detail-img:hover {
+    transform: translateY(-5px);
+}
+/* 釉色模块 */
+.glaze-module {
+    padding: 50px;
+     background: url("../img/18.jpg");
+    margin: 0 30px 30px;
+    border-radius: 8px;
+}
+.module-title {
+    font-size: 32px;
+    color: #1a3c34;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+.module-title::after {
+    content: "";
+    width: 80px;
+    height: 3px;
+    background-color: #f2a365;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* 釉色图片区 */
+.glaze-list {
+    display: flex;
+    gap: 80px;
+	row-gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.glaze-card {
+    width: 25%;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+.glaze-list-guan {
+    display: flex;
+    gap: 40px;
+	row-gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.glaze-card-guan {
+    width: 20%;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+.glaze-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+/* 釉色文字*/
+.glaze-text {
+    position: absolute;
+    top: 20px; /* 移至图片上方 */
+    left: 10px;
+    right: 60px;
+    background-color: transparent; /* 背景透明 */
+    color: #1a3c34;
+    padding: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.glaze-text-jun {
+    position: absolute;
+    top: 20px; /* 移至图片上方 */
+    left: 10px;
+    right: 110px;
+    background-color: transparent; /* 背景透明 */
+    color: #fff;
+    padding: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.glaze-text-jun h4 {
+    font-size: 20px;
+    margin-bottom: 80px;
+    color: #f2a365;
+}
+
+.glaze-text h4 {
+    font-size: 20px;
+    margin-bottom: 60px;
+    color: #f2a365;
+}
+/* 汝窑页面专属：经典釉色六卡排成一行（不影响其他四窑） */
+.glaze-module-ru .glaze-list {
+    flex-wrap: nowrap;
+    gap: 18px;
+}
+.glaze-module-ru .glaze-card {
+    width: 15.5%;
+    flex: 1 1 15.5%;
+    max-width: 220px;
+}
+.glaze-module-ru .glaze-img {
+    height: 500px;
+}
+.glaze-module-ru .glaze-text {
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.glaze-module-ru .glaze-text h4 {
+    flex-shrink: 0;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+.glaze-module-ru .glaze-text p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/* 官窑页面专属：经典釉色四卡一行 */
+.glaze-module-guan .glaze-list-guan {
+    flex-wrap: nowrap;
+    gap: 25px;
+}
+.glaze-module-guan .glaze-card-guan {
+    width: 22%;
+    flex: 1 1 22%;
+}
+.glaze-module-guan .glaze-img {
+    height: 500px;
+}
+.glaze-module-guan .glaze-text {
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.glaze-module-guan .glaze-text h4 {
+    flex-shrink: 0;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+.glaze-module-guan .glaze-text p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/* 哥窑页面专属：经典釉色两卡一行 */
+.glaze-module-ge .glaze-list {
+    flex-wrap: nowrap;
+    gap: 40px;
+}
+.glaze-module-ge .glaze-card {
+    width: 300px;
+    flex: 0 0 300px;
+}
+.glaze-module-ge .glaze-img {
+    height: 500px;
+    object-fit: contain;
+    object-position: center;
+}
+.glaze-module-ge .glaze-text {
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.glaze-module-ge .glaze-text h4 {
+    flex-shrink: 0;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+.glaze-module-ge .glaze-text p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/* 钧窑页面专属：经典釉色两卡一行 */
+.glaze-module-jun .glaze-list {
+    flex-wrap: nowrap;
+    gap: 40px;
+}
+.glaze-module-jun .glaze-card {
+    width: 300px;
+    flex: 0 0 300px;
+}
+.glaze-module-jun .glaze-img {
+    height: 500px;
+    object-fit: contain;
+    object-position: center;
+}
+.glaze-module-jun .glaze-text-jun {
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.glaze-module-jun .glaze-text-jun h4 {
+    flex-shrink: 0;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+.glaze-module-jun .glaze-text-jun p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/* 定窑页面专属：经典釉色三卡一行 */
+.glaze-module-ding .glaze-list {
+    flex-wrap: nowrap;
+    gap: 30px;
+}
+.glaze-module-ding .glaze-card {
+    width: 300px;
+    flex: 0 0 300px;
+}
+.glaze-module-ding .glaze-img {
+    height: 500px;
+    object-fit: contain;
+    object-position: center;
+}
+.glaze-module-ding .glaze-text-jun {
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.glaze-module-ding .glaze-text-jun h4 {
+    flex-shrink: 0;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+.glaze-module-ding .glaze-text-jun p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/* 纹样模块 */
+.pattern-module {
+    padding: 0 50px 50px;
+}
+.pattern-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.pattern-item {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+/* 奇数项：图左文右 */
+.pattern-item:nth-child(odd) {
+    flex-direction: row;
+}
+/* 偶数项：图右文左 */
+.pattern-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.pattern-img {
+    width: 20%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+.pattern-info {
+    width: 90%;
+}
+.pattern-name {
+    font-size: 24px;
+    color: #1a3c34;
+    margin-bottom: 15px;
+}
+.pattern-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+}
+.pattern-format {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+.pattern-format h5 {
+    font-size: 18px;
+    color: #1a3c34;
+    margin-bottom: 12px;
+}
+.pattern-format p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.6;
+}
+/* 经典瓷器模块（hover显示文字） */
+.classic-module {
+    padding: 0 50px 50px;
+}
+.classic-list {
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+}
+.classic-card {
+    width: 28%;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.classic-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+/* hover遮罩与文字 */
+.classic-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(26, 60, 52, 0.9);
+    color: #fff;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.classic-card:hover .classic-img {
+    transform: scale(1.05);
+}
+.classic-card:hover .classic-mask {
+    opacity: 1;
+}
+.classic-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #f2a365;
+}
+.classic-info {
+    font-size: 12px;
+    line-height: 1.5;
+}
+/* 汝窑页面专属：传世经典瓷器六卡排成一行（不影响其他四窑） */
+.classic-module-ru .classic-list {
+    flex-wrap: nowrap;
+    gap: 18px;
+}
+.classic-module-ru .classic-card {
+    width: 15.5%;
+    flex: 1 1 15.5%;
+    max-width: 220px;
+}
+.classic-module-ru .classic-img {
+    height: 280px;
+}
+.classic-module-ru .classic-mask {
+    padding: 10px;
+}
+.classic-module-ru .classic-name {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+.classic-module-ru .classic-info {
+    font-size: 11px;
+    line-height: 1.45;
+}
+/* 互动引导区*/
+.guide-area {
+    padding: 40px;
+    background-color: #f0f5f2;
+    text-align: center;
+}
+.guide-btn {
+    padding: 12px 30px;
+    background-color: #1a3c34;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 15px;
+    font-size: 17px;
+    transition: background-color 0.3s;
+}
+.guide-btn:hover {
+    background-color: #f2a365;
+}
+/* 响应式适配 */
+@media (max-width: 1200px) {
+    .detail-container {
+        max-width: 95%;
+    }
+    .detail-content {
+        grid-template-columns: 1fr 2fr;
+        padding: 30px;
+    }
+    .glaze-card {
+        width: 45%;
+    }
+    .pattern-item {
+        flex-direction: column !important;
+    }
+    .pattern-img, .pattern-info {
+        width: 100%;
+    }
+    .classic-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .classic-card {
+        width: 80%;
+    }
+    /* 汝窑专属：1200px以下自动降级为一行3个 */
+    .classic-module-ru .classic-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .classic-module-ru .classic-card {
+        width: 30%;
+        flex: 1 1 30%;
+        max-width: none;
+    }
+    .classic-module-ru .classic-img {
+        height: 320px;
+    }
+    /* 汝窑专属：釉色 1200px以下自动降级为一行3个 */
+    .glaze-module-ru .glaze-list {
+        flex-wrap: wrap;
+    }
+    .glaze-module-ru .glaze-card {
+        width: 30%;
+        flex: 1 1 30%;
+        max-width: none;
+    }
+    .glaze-module-ru .glaze-img {
+        height: 500px;
+    }
+    /* 四窑专属：釉色 1200px以下自动换行（每行2个） */
+    .glaze-module-guan .glaze-list-guan {
+        flex-wrap: wrap;
+    }
+    .glaze-module-guan .glaze-card-guan {
+        width: 45%;
+        flex: 1 1 45%;
+    }
+    .glaze-module-ge .glaze-list,
+    .glaze-module-jun .glaze-list,
+    .glaze-module-ding .glaze-list {
+        flex-wrap: wrap;
+    }
+    .glaze-module-ge .glaze-card,
+    .glaze-module-jun .glaze-card,
+    .glaze-module-ding .glaze-card {
+        width: 300px;
+        flex: 0 0 300px;
+    }
+}
+@media (max-width: 768px) {
+    .detail-content {
+        grid-template-columns: 1fr;
+    }
+    .info-item strong {
+        width: auto;
+        display: block;
+        margin-bottom: 2px;
+    }
+    .info-item span[style] {
+        margin-left: 0 !important;
+    }
+    .img-box {
+        flex-direction: column;
+    }
+    .detail-img {
+        width: 100%;
+    }
+    .glaze-card {
+        width: 90%;
+    }
+    .classic-card {
+        width: 95%;
+    }
+    /* 汝窑专属：768px以下降级为单列 */
+    .classic-module-ru .classic-card {
+        width: 95%;
+        flex: 1 1 95%;
+        max-width: none;
+    }
+    .classic-module-ru .classic-img {
+        height: 320px;
+    }
+    /* 汝窑专属：釉色 768px以下降级为单列 */
+    .glaze-module-ru .glaze-card {
+        width: 90%;
+        flex: 1 1 90%;
+        max-width: none;
+    }
+    .glaze-module-ru .glaze-img {
+        height: 500px;
+    }
+    /* 四窑专属：釉色 768px以下降级为单列（官窑90%，哥/钧/定窑贴合图片300px） */
+    .glaze-module-guan .glaze-card-guan {
+        width: 90%;
+        flex: 1 1 90%;
+    }
+    .glaze-module-ge .glaze-card,
+    .glaze-module-jun .glaze-card,
+    .glaze-module-ding .glaze-card {
+        width: 300px;
+        flex: 0 0 300px;
+    }
+    .guide-btn {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+}
+
+/* ===== 3D 模型加载提示 ===== */
+.porc-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-indent: 3px;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+.porc-loading::before {
+    content: '';
+    width: 26px;
+    height: 26px;
+    margin-right: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #f2a365;
+    border-radius: 50%;
+    animation: porcSpin 0.9s linear infinite;
+    flex: none;
+}
+.porc-loading.done {
+    opacity: 0;
+}
+@keyframes porcSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===== 3D 模型控制条（五窑页） ===== */
+.porc-controls {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 16px;
+    z-index: 3;
+}
+.porc-btn {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    padding: 7px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+.porc-btn:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-1px);
+}
+.porc-btn:active {
+    transform: scale(0.94);
+}
+.porc-btn.on {
+    background: #f2a365;
+    border-color: #f2a365;
+    color: #1a3c34;
+    font-weight: 600;
+}
+
+/* ===== 档案区参考图悬停放大镜 ===== */
+.img-box,
+.img-box-ding {
+    position: relative;
+}
+.zoom-lens {
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+    background-repeat: no-repeat;
+    background-color: #fff;
+    pointer-events: none;
+    z-index: 60;
+    display: none;
+}
+.zoom-tip {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(26, 60, 52, 0.75);
+    color: #f5efe0;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    z-index: 5;
+}
+.img-box:hover .zoom-tip,
+.img-box-ding:hover .zoom-tip {
+    opacity: 1;
+}
+
+/* ===== 四大关键词翻转卡片 ===== */
+.quiz-module {
+    padding: 50px 30px;
+    margin: 0 30px 30px;
+    background: #ffffff;
+    border-radius: 8px;
+}
+.quiz-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.quiz-card {
+    perspective: 1200px;
+    cursor: pointer;
+    height: 250px;
+    outline: none;
+}
+.quiz-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.4, 0.15, 0.2, 1);
+}
+.quiz-card.flipped .quiz-inner {
+    transform: rotateY(180deg);
+}
+.quiz-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+    padding: 22px;
+    box-sizing: border-box;
+    line-height: 1.7;
+}
+/* 正面：故宫风 · 整卡铺满本窑瓷器实物图 + 深色罩，关键词居中 */
+.quiz-front {
+    background-color: #3a4f4a;
+    background-size: cover;
+    background-position: center;
+    color: #f5efe0;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+}
+/* 顶部釉光 */
+.quiz-front::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 46%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+/* 背面：宣纸质感，翻面文字放大 */
+.quiz-back {
+    background: linear-gradient(160deg, #fdf6e9, #f3e8d2);
+    color: #3a3226;
+    border: 1px solid #e5d9bf;
+    transform: rotateY(180deg);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+/* 五窑各自：本窑代表瓷器图铺满 + 导航栏同色深色罩 */
+body.page-ru .quiz-front {
+    background:
+        linear-gradient(160deg, rgba(85, 122, 114, 0.72), rgba(74, 107, 99, 0.88)),
+        url('../img/汝窑粉青釉莲花式碗.png') center / cover no-repeat;
+}
+body.page-guan .quiz-front {
+    background:
+        linear-gradient(160deg, rgba(90, 115, 122, 0.72), rgba(78, 101, 108, 0.88)),
+        url('../img/南宋官窑粉青釉贯耳瓶.png') center / cover no-repeat;
+}
+body.page-ge .quiz-front {
+    background:
+        linear-gradient(160deg, rgba(107, 86, 56, 0.72), rgba(90, 72, 48, 0.88)),
+        url('../img/哥窑米黄釉鱼耳炉.png') center / cover no-repeat;
+}
+body.page-jun .quiz-front {
+    background:
+        linear-gradient(160deg, rgba(110, 90, 98, 0.72), rgba(90, 73, 81, 0.88)),
+        url('../img/钧窑玫瑰紫釉海棠式花盆.png') center / cover no-repeat;
+}
+body.page-ding .quiz-front {
+    background:
+        linear-gradient(160deg, rgba(98, 89, 76, 0.72), rgba(82, 74, 62, 0.88)),
+        url('../img/定窑白釉孩儿枕.png') center / cover no-repeat;
+}
+body.page-ru .quiz-back { color: #27403a; }
+body.page-guan .quiz-back { color: #2f3f45; }
+body.page-ge .quiz-back { color: #3a2d1c; }
+body.page-jun .quiz-back { color: #3d3138; }
+body.page-ding .quiz-back { color: #332e26; }
+@media (max-width: 900px) {
+    .quiz-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 560px) {
+    .quiz-list {
+        grid-template-columns: 1fr;
+    }
+    .quiz-card {
+        height: 180px;
+    }
+}

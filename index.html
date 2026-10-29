@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>宋瓷五窑纪 · 穿越北宋的瓷之旅</title>
+		<link rel="stylesheet" href="css/common.css?v=2">
+		<link rel="stylesheet" href="css/index.css">
+		<script src="js/lang-common.js"></script>
+		<script src="js/lang-index.js"></script>
+		<script src="js/i18n.js"></script>
+		<script src="js/globalErrorHandler.js"></script>
+			<link rel="stylesheet" href="css/responsive.css">
+	</head>
+	<body>
+		<div class="nav-logo" style="color: #d5ebe1;" data-i18n="brand.name">宋瓷五窑纪</div>
+		<div class="nav-menu-bar">
+			<div class="nav-menu">
+				<a href="index.html" data-i18n="nav.home">首页</a>
+				<div class="nav-dropdown dropdown-wuyaos">
+					<a href="#" data-i18n="nav.kilns">五大名窑</a>
+					<div class="dropdown-content">
+						<a href="ruyao.html" data-i18n="nav.ruyao">汝窑</a>
+						<a href="guanyao.html" data-i18n="nav.guanyao">官窑</a>
+						<a href="geyao.html" data-i18n="nav.geyao">哥窑</a>
+						<a href="junyao.html" data-i18n="nav.junyao">钧窑</a>
+						<a href="dingyao.html" data-i18n="nav.dingyao">定窑</a>
+					</div>
+				</div>
+				<a href="workshop.html" data-i18n="nav.workshop">宋瓷工坊</a>
+				<a href="share.html" data-i18n="nav.share">瓷友分享</a>
+				<a href="heritage.html" data-i18n="nav.heritage">非遗传承</a>
+				<div class="nav-dropdown dropdown-more">
+					<a href="#" data-i18n="nav.more">更多</a>
+					<div class="dropdown-content">
+						<a href="funfact.html" data-i18n="nav.funfact">窑口冷知识</a>
+						<a href="collection.html" data-i18n="nav.collection">我的收藏</a>
+						<a href="contact.html" data-i18n="nav.contact">联系我们</a>
+					</div>
+				</div>
+				<button type="button" class="lang-toggle" id="langToggle">EN</button>
+			</div>
+		</div>
+		<!--宋代五大名瓷轮播图-->
+		<div class="carousel" id="porcelainCarousel">
+			<!-- 汝窑轮播项 -->
+			<div class="carousel-item active">
+				<img src="img/汝.jpg" alt="汝窑">
+				<div class="carousel-text">
+					<h2 class="carousel-title" data-i18n="index.slide1.title">汝窑·雨过天青 温润如玉</h2>
+					<p class="carousel-desc" data-i18n="index.slide1.desc">雨过天青云破处，这般颜色做将来，汝窑为宋代五大名窑之首，御用珍品传世稀少。</p>
+				</div>
+			</div>
+			<!-- 官窑轮播项 -->
+			<div class="carousel-item">
+				<img src="img/官.jpg" alt="官窑">
+				<div class="carousel-text">
+					<h2 class="carousel-title" data-i18n="index.slide2.title">官窑·金声玉色 简约大方</h2>
+					<p class="carousel-desc" data-i18n="index.slide2.desc">宋代宫廷官窑，釉色粉青莹润，器型端庄典雅，尽显皇家风范。</p>
+				</div>
+			</div>
+			<!-- 哥窑轮播项 -->
+			<div class="carousel-item">
+				<img src="img/哥.jpg" alt="哥窑">
+				<div class="carousel-text">
+					<h2 class="carousel-title" data-i18n="index.slide3.title">哥窑·金丝铁线 攒珠聚球</h2>
+					<p class="carousel-desc" data-i18n="index.slide3.desc">开片纹为特色，金丝铁线自然天成，是宋代瓷器工艺的艺术瑰宝。</p>
+				</div>
+			</div>
+			<!-- 钧窑轮播项 -->
+			<div class="carousel-item">
+				<img src="img/钧.jpg" alt="钧窑">
+				<div class="carousel-text">
+					<h2 class="carousel-title" data-i18n="index.slide4.title">钧窑·入窑一色 出窑万彩</h2>
+					<p class="carousel-desc" data-i18n="index.slide4.desc">入窑一色，出窑万彩，钧窑窑变釉色堪称宋代瓷器的色彩奇迹。</p>
+				</div>
+			</div>
+			<!-- 定窑轮播项 -->
+			<div class="carousel-item">
+				<img src="img/定.jpg" alt="定窑">
+				<div class="carousel-text">
+					<h2 class="carousel-title" data-i18n="index.slide5.title">定窑·细腻纹饰 宛若霜雪</h2>
+					<p class="carousel-desc" data-i18n="index.slide5.desc">以白釉印花工艺闻名，釉色温润如玉，纹饰精美繁复。</p>
+				</div>
+			</div>
+			<!-- 轮播图小圆点 -->
+			<div class="carousel-dots">
+				<div class="carousel-dot active" data-index="0"></div>
+				<div class="carousel-dot" data-index="1"></div>
+				<div class="carousel-dot" data-index="2"></div>
+				<div class="carousel-dot" data-index="3"></div>
+				<div class="carousel-dot" data-index="4"></div>
+			</div>
+		</div>
+		<!-- 名瓷速览区 -->
+		<div class="porcelain-list">
+			<h2 class="list-title" data-i18n="index.listTitle">五大名窑</h2>
+			<div class="card-wrap">
+				<!-- 第一行：2个卡片 -->
+				<div class="card-row row-2">
+					<div class="porcelain-card" onclick="location.href='ruyao.html'">
+						<img src="img/汝窑海报.png" class="card-img" alt="汝窑">
+						<div class="card-info">
+							<h3 class="card-name" data-i18n="nav.ruyao">汝窑</h3>
+							<p class="card-desc" data-i18n="index.card.ru.desc">雨过天青 温润如玉</p>
+						</div>
+					</div>
+					<div class="porcelain-card" onclick="location.href='guanyao.html'">
+						<img src="img/官窑海报.png" class="card-img" alt="官窑">
+						<div class="card-info">
+							<h3 class="card-name" data-i18n="nav.guanyao">官窑</h3>
+							<p class="card-desc" data-i18n="index.card.guan.desc">金声玉色 简约大方</p>
+						</div>
+					</div>
+				</div>
+				<!-- 第二行：3个卡片 -->
+				<div class="card-row row-3">
+					<div class="porcelain-card" onclick="location.href='geyao.html'">
+						<img src="img/哥窑海报.png" class="card-img" alt="哥窑">
+						<div class="card-info">
+							<h3 class="card-name" data-i18n="nav.geyao">哥窑</h3>
+							<p class="card-desc" data-i18n="index.card.ge.desc">金丝铁线 攒珠聚球</p>
+						</div>
+					</div>
+					<div class="porcelain-card" onclick="location.href='junyao.html'">
+						<img src="img/钧窑海报.png" class="card-img" alt="钧窑">
+						<div class="card-info">
+							<h3 class="card-name" data-i18n="nav.junyao">钧窑</h3>
+							<p class="card-desc" data-i18n="index.card.jun.desc">入窑一色 出窑万彩</p>
+						</div>
+					</div>
+					<div class="porcelain-card" onclick="location.href='dingyao.html'">
+						<img src="img/定窑海报.png" class="card-img" alt="定窑">
+						<div class="card-info">
+							<h3 class="card-name" data-i18n="nav.dingyao">定窑</h3>
+							<p class="card-desc" data-i18n="index.card.ding.desc">细腻纹饰 宛若霜雪</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 窑主之路：互动玩法入口 -->
+		<div class="quest-banner">
+			<h2 class="quest-banner-title" data-i18n="index.questBanner.title">窑主之路 · 不止于看</h2>
+			<p class="quest-banner-sub" data-i18n="index.questBanner.sub">穿越到北宋，亲手烧一窑瓷、造一场开片、闯五关集印章</p>
+			<div class="quest-banner-cards">
+				<a class="quest-banner-card" href="kilnbox.html">
+					<h3 data-i18n="index.card.kilnbox.title">窑变盲盒</h3>
+					<p data-i18n="index.card.kilnbox.desc">入窑一色，出窑万彩。替宫廷烧一窑钧瓷，赌一次万彩天成</p>
+				</a>
+				<a class="quest-banner-card" href="crackle.html">
+					<h3 data-i18n="index.card.crackle.title">开片实验室</h3>
+					<p data-i18n="index.card.crackle.desc">拨动胎釉温差，看冰裂纹在你眼前一点点爬满瓷面</p>
+				</a>
+				<a class="quest-banner-card" href="funfact.html">
+					<h3 data-i18n="index.card.trial.title">窑主试炼</h3>
+					<p data-i18n="index.card.trial.desc">五窑知识闯关，答对三题集一印，集齐五印成窑主</p>
+				</a>
+			</div>
+			<div class="quest-banner-progress" id="questProgress"></div>
+		</div>
+
+		<!-- 页脚 -->
+		<div class="footer">
+			<p data-i18n="footer.copyright">宋瓷五窑纪</p>
+		</div>
+		<!-- 穿越引子弹层（首次访问显示） -->
+	<div class="story-modal" id="storyModal" style="display:none;">
+		<div class="story-modal-box">
+			<p class="story-eyebrow" data-i18n="index.story.eyebrow">宋 · 元祐年间</p>
+			<h2 class="story-heading" data-i18n="index.story.heading">你接过了一座瓷窑</h2>
+			<p class="story-body" data-i18n-html="index.story.body">汝、官、哥、钧、定——五大名窑各怀绝技。<br>有人为皇室烧御用天青，有人赌一把入窑一色的窑变。<br>从今天起，巡五窑、学工艺、烧名瓷，<br>集齐五窑印章，成为大宋最负盛名的窑主。</p>
+			<button class="story-btn" id="storyStartBtn" data-i18n="index.story.startBtn">入窑为徒 · 开始旅程</button>
+		</div>
+	</div>
+
+	<!-- 轮播图+滚动置顶JS代码 -->
+		<script>
+			// 轮播图逻辑
+			const carousel = document.getElementById('porcelainCarousel');
+			const items = carousel.querySelectorAll('.carousel-item');
+			const dots = carousel.querySelectorAll('.carousel-dot');
+			let currentIndex = 0;
+			let carouselInterval;
+			// 初始化自动轮播
+			startCarousel();
+			// 悬停暂停/恢复
+			carousel.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+			carousel.addEventListener('mouseleave', () => startCarousel());
+			// 显示指定轮播项
+			function showItem(index) {
+				items.forEach(item => item.classList.remove('active'));
+				dots.forEach(dot => dot.classList.remove('active'));
+				items[index].classList.add('active');
+				dots[index].classList.add('active');
+				currentIndex = index;
+			}
+			// 切换下一项
+			function showNextItem() {
+				currentIndex = (currentIndex + 1) % items.length;
+				showItem(currentIndex);
+			}
+			// 启动轮播
+			function startCarousel() {
+				carouselInterval = setInterval(showNextItem, 5000);
+			}
+			// 点击圆点切换
+			dots.forEach(dot => {
+				dot.addEventListener('click', () => {
+					clearInterval(carouselInterval);
+					const index = parseInt(dot.dataset.index);
+					showItem(index);
+					startCarousel();
+				});
+			});
+			// 滚动置顶核心逻辑
+			const navLogo = document.querySelector('.nav-logo');
+			const navMenuBar = document.querySelector('.nav-menu-bar');
+			const scrollThreshold = 150; // 滚动触发阈值
+
+			window.addEventListener('scroll', () => {
+				const scrollTop = window.scrollY;
+				if (scrollTop > scrollThreshold) {
+					navLogo.classList.add('fixed');
+					navMenuBar.classList.add('fixed');
+				} else {
+					navLogo.classList.remove('fixed');
+					navMenuBar.classList.remove('fixed');
+				}
+			});
+		</script>
+	
+		<script src="js/seal.js"></script>
+	<script>
+		// 首页集印进度条
+		(function () {
+			function renderQuestProgress() {
+				var box = document.getElementById('questProgress');
+				if (!box || !window.SongCiSeals) return;
+				var t = window.SongCiI18N ? window.SongCiI18N.t.bind(window.SongCiI18N) : function(k){ return k; };
+				var n = window.SongCiSeals.count();
+				var slots = '';
+				var keys = ['ru','guan','ge','jun','ding'];
+				for (var i = 0; i < 5; i++) {
+					var name = t('index.slot.' + keys[i]);
+					var kilnName = name + (window.SongCiI18N && window.SongCiI18N.current === 'zh' ? '窑' : ' Kiln');
+					slots += '<span class="qbp-slot' + (i < n ? ' filled' : '') + '" title="' + kilnName + '">' + name + '</span>';
+				}
+				box.innerHTML = '<span class="qbp-label">' + t('index.progress.label') + '</span>' + slots +
+					(n === 5 ? '<span class="qbp-done">' + t('index.progress.done') + '</span>' : '');
+			}
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', renderQuestProgress);
+			} else { renderQuestProgress(); }
+			window.addEventListener('langchange', renderQuestProgress);
+
+			// 穿越引子：仅首次访问显示
+			var modal = document.getElementById('storyModal');
+			try {
+				if (!localStorage.getItem('songci_story_seen')) modal.style.display = 'flex';
+			} catch (e) { modal.style.display = 'flex'; }
+			document.getElementById('storyStartBtn').addEventListener('click', function () {
+				modal.style.opacity = '0';
+				setTimeout(function () { modal.style.display = 'none'; }, 400);
+				try { localStorage.setItem('songci_story_seen', '1'); } catch (e) {}
+			});
+		})();
+	</script>
+	<script src="js/particles.js"></script>
+	
+	<script src="js/reveal.js?v=3"></script>
+</body>
+</html>

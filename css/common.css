@@ -1,0 +1,460 @@
+/* 全局样式重置+宋体设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "SimSun", 宋体, "Microsoft YaHei", sans-serif; /* 全局宋体 */
+}
+html[lang="en"] body,
+html[lang="en"] * {
+    font-family: "Georgia", "Times New Roman", "SimSun", serif;
+}
+body {
+    background-color: #f0f5f2;
+	background-image: url("../img/3.jpg");
+	background-repeat: repeat;
+	background-size: cover; /* 保持纹理原有尺寸（也可设为cover/stretch调整） */
+	color: #333;
+	padding: 0px;
+}
+/* 初始悬浮+滚动固定 */
+.nav-logo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #1a3c34;
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: 15px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    z-index: 999;
+    transition: all 0.3s ease;
+    white-space: nowrap;   /* 防止英文长标题换行 */
+}
+/* 滚动固定状态  */
+.nav-logo.fixed {
+    position: fixed;
+    top: 10px;
+    font-size: 45px;
+    letter-spacing: 10px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+/* 导航栏初始悬浮+滚动固定 */
+.nav-menu-bar {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background-color: rgba(26, 60, 52, 0.8);
+    padding: 12px 0;
+    z-index: 998;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.nav-menu-bar.fixed {
+    position: fixed;
+    top: 75px;
+    background-color: rgba(26, 60, 52, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+/* 英文模式：缩小间距、强制不换行，避免最后一项掉到第二行 */
+html[lang="en"] .nav-menu {
+    gap: 32px;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    padding: 0 20px;
+}
+html[lang="en"] .nav-menu a,
+html[lang="en"] .nav-dropdown > a {
+    font-size: 17px;
+    padding: 6px 8px;
+    white-space: nowrap;
+}
+/* 导航项样式 */
+.nav-menu a, .nav-dropdown > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
+    padding: 8px 12px;
+    display: inline-block;
+}
+.nav-menu a:hover {
+    color: #f2a365;
+}
+.nav-dropdown {
+    position: relative;
+    padding-bottom: 5px;
+}
+/* 五大名窑下拉菜单 */
+.dropdown-wuyaos .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    min-width: 90px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 999;
+}
+.dropdown-wuyaos .dropdown-content a {
+    color: rgba(26, 60, 52, 0.95);
+    display: block;
+    padding: 10px 15px;
+    font-size: 17px;
+    text-align: center;
+}
+.dropdown-wuyaos .dropdown-content a:hover {
+    background-color: #f0f5f2;
+    color: #1a3c34;
+}
+/* 下拉菜单 */
+.dropdown-more .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    min-width: 150px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 999;
+}
+.dropdown-more .dropdown-content a {
+    color: rgba(26, 60, 52, 0.95);
+    display: block;
+    padding: 10px 15px;
+    font-size: 17px;
+    text-align: center;
+}
+.dropdown-more .dropdown-content a:hover {
+    background-color: #f0f5f2;
+    color: #1a3c34;
+}
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
+/* 轮播图基础样式 */
+.carousel {
+    position: relative;
+    height: 920px;
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+.carousel-item.active {
+    opacity: 1;
+}
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* 页脚通用样式 */
+.footer {
+    width: 100%;
+    padding: 24px 0;
+    background-color: #1a3c34;
+    color: #ccc;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+    letter-spacing: 8px;
+    text-indent: 8px;
+}
+/* 页面通用容器 */
+.page-container {
+    width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+/* 页面通用标题 */
+.page-title {
+    font-size: 28px;
+    color: #5a4a3c;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0d8cf;
+}
+/* 全局异常弹窗样式 */
+.global-error-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* 最高层级，确保不被遮挡 */
+}
+.global-error-modal > div {
+    background-color: #fff;
+    padding: 35px 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+.error-icon {
+    font-size: 56px;
+    margin-bottom: 22px;
+    color: #e74c3c;
+}
+.global-error-modal h3 {
+    font-size: 24px;
+    color: #1a3c34;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+.global-error-modal p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+.error-btns {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+}
+.error-btns button {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+.error-btns button:first-child {
+    background-color: #f2a365;
+    color: #fff;
+}
+.error-btns button:first-child:hover {
+    background-color: #e08744;
+    transform: translateY(-2px);
+}
+.error-btns button:last-child {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #eee;
+}
+.error-btns button:last-child:hover {
+    background-color: #eee;
+    transform: translateY(-2px);
+}
+/* 全局提示弹窗样式 */
+.global-toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 14px 28px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 9998;
+}
+/* 响应式适配 */
+@media (max-width: 480px) {
+    .global-error-modal > div {
+        padding: 25px 20px;
+    }
+
+    .error-icon {
+        font-size: 48px;
+    }
+
+    .global-error-modal h3 {
+        font-size: 22px;
+    }
+
+    .global-error-modal p {
+        font-size: 15px;
+    }
+
+    .error-btns button {
+        padding: 10px 24px;
+        font-size: 15px;
+    }
+}
+
+/* ===== 语言切换按钮 ===== */
+.lang-toggle {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: #fff;
+    font-size: 15px;
+    padding: 5px 14px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.lang-toggle:hover {
+    background-color: #f2a365;
+    border-color: #f2a365;
+    color: #fff;
+}
+/* 英文模式下适当缩小品牌字距，避免溢出 */
+html[lang="en"] .nav-logo {
+    font-size: 38px;
+    letter-spacing: 3px;
+}
+html[lang="en"] .nav-logo.fixed {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+@media (max-width: 768px) {
+    .lang-toggle {
+        font-size: 13px;
+        padding: 4px 10px;
+    }
+    html[lang="en"] .nav-logo {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+    html[lang="en"] .nav-logo.fixed {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+}
+
+/* ===== 宋瓷质感动效全局配置 ===== */
+/* 轮播图缓慢推拉 Ken Burns 展陈效果 */
+.carousel-item img {
+    transition: transform 8s ease-out;
+}
+.carousel-item.active img {
+    transform: scale(1.06);
+}
+
+/* 釉面高光扫过效果（对应瓷面玉光） */
+.shine-wrap {
+    position: relative;
+    overflow: hidden;
+}
+.shine-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: none;
+}
+.shine-wrap:hover::after {
+    animation: shineSweep 0.8s ease-out forwards;
+}
+@keyframes shineSweep {
+    100% { left: 125%; }
+}
+
+/* 滚动淡入上滑基础动画 */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 首屏标题雾中浮现动画 */
+.nav-logo {
+    animation: logoReveal 2.2s ease-out forwards;
+}
+@keyframes logoReveal {
+    0% { opacity: 0; letter-spacing: 35px; filter: blur(8px); }
+    100% { opacity: 1; letter-spacing: 15px; filter: blur(0); }
+}
+
+/* ===== 全局粒子特效画布（青瓷浮尘+窑火余烬） ===== */
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;           /* 位于 body 背景之上、所有正文之下 */
+    pointer-events: none;   /* 不拦截任何点击/滚轮 */
+}
+
+/* ===== 全局交互手感：按钮 / 卡片微动效（宋瓷质感） ===== */
+button, .btn, a.btn, [role="button"], .kb-btn-group button, .story-btn, .lang-toggle {
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    will-change: transform;
+}
+button:hover, .btn:hover, a.btn:hover, .story-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 60, 52, 0.20);
+}
+button:active, .btn:active, a.btn:active, .story-btn:active {
+    transform: translateY(0) scale(0.96);
+    box-shadow: 0 2px 6px rgba(26, 60, 52, 0.15);
+}
+
+/* 卡片悬停上浮：轻提 + 加深投影，如托起展品 */
+.porcelain-card, .game-card, .funfact-card, .classic-card, .glaze-card, .glaze-card-guan,
+.pattern-item, .work-card, .collection-card, .craftsman-card, .step-card, .qna-item,
+.quest-banner-card, .info-item, .skill-step {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.porcelain-card:hover, .game-card:hover, .funfact-card:hover, .classic-card:hover,
+.glaze-card:hover, .glaze-card-guan:hover, .pattern-item:hover, .work-card:hover,
+.collection-card:hover, .craftsman-card:hover, .step-card:hover, .qna-item:hover,
+.quest-banner-card:hover, .info-item:hover, .skill-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(26, 60, 52, 0.14);
+}
+
+/* 触屏设备关闭 hover 上浮（避免误触悬停态），保留按下反馈 */
+@media (hover: none) {
+    button:hover, .btn:hover, a.btn:hover, .porcelain-card:hover, .game-card:hover,
+    .funfact-card:hover, .classic-card:hover, .glaze-card:hover, .work-card:hover,
+    .collection-card:hover, .craftsman-card:hover, .step-card:hover, .qna-item:hover,
+    .quest-banner-card:hover, .pattern-item:hover, .info-item:hover, .skill-step:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
