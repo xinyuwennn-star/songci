@@ -216,8 +216,12 @@ img {
         min-width: 110px;
     }
     /* 触屏设备用 focus 也能展开下拉 */
-    .nav-dropdown:focus-within .dropdown-content {
+    .nav-dropdown:focus-within .dropdown-content,
+    .nav-dropdown.open .dropdown-content {
         display: block;
+    }
+    .nav-dropdown.open > a {
+        color: #d5ebe1;
     }
 
     /* 语言切换按钮 */
