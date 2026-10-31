@@ -4,6 +4,12 @@
 		<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>宋瓷工坊 · 瓷器DIY | 宋瓷五窑纪</title>
+		<script>
+		// file:// 下摄像头/WebGL纹理受限，自动跳转到本地服务器
+		if (location.protocol === 'file:') {
+			location.replace('http://localhost:8000/workshop.html' + location.hash);
+		}
+		</script>
 		<link rel="stylesheet" href="css/workshop.css">
 		<link rel="stylesheet" href="css/common.css?v=2">
 		<script src="js/lang-common.js"></script>
@@ -113,11 +119,15 @@
 					<div class="step-panel" id="diyStep2">
 						<h3 class="step-title" data-i18n="workshop.diy.step2">第二步：拉坯塑形</h3>
 						<p class="lapi-tips" data-i18n="workshop.diy.tips">拖动泥坯调整高矮胖瘦，用力过猛会开裂哦！</p>
-						<div class="lapi-container">
-							<div class="lapi-wheel">
-								<div class="clay-body shape-wash" id="diyClayBody"></div>
-								<div class="crack" id="diyCrack"></div>
+						<div class="lapi-container" id="lapiContainer">
+							<div class="clay-body" id="diyClayBody" style="display:none"></div>
+							<div class="crack" id="diyCrack"></div>
+							<div class="hand-panel" id="handPanel" style="display:none;">
+								<video id="handVideo" playsinline muted></video>
+								<canvas id="handCanvas"></canvas>
+								<div class="hand-tip">双手分开拉胖 · 上下移动调高矮</div>
 							</div>
+							<button class="btn hand-toggle" id="handToggleBtn" type="button">开启手势拉坯</button>
 						</div>
 						<div class="btn-group">
 							<button class="btn prev-btn" onclick="showDiyStep('diyStep1')" data-i18n="workshop.diy.prev">上一步</button>
@@ -220,8 +230,10 @@
 		</div>
 
 		<script src="js/seal.js"></script>
-	<script src="js/workshop.js"></script>
-	
+		<script src="js/vendor/three.min.js"></script>
+		<script src="js/lathe-3d.js"></script>
+		<script src="js/workshop.js"></script>
+		<script src="js/hand-control.js"></script>
 		<script src="js/particles.js"></script>
 	
 	<script src="js/reveal.js?v=3"></script>

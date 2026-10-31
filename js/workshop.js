@@ -11,6 +11,8 @@ let diyData = {
 	w: 0,
 	h: 0
 };
+// 暴露给 hand-control.js 同步手势形变
+window.diyData = diyData;
 
 // 器型数据：clip-path 控制点（左右各4个：口沿/肩/腹/底足）、对应窑口、成品诗句
 // pts: [口沿L, 口沿R, 肩L, 肩R, 腹L, 腹R, 底足L, 底足R]，都是百分比
@@ -139,14 +141,16 @@ function initDiyGame() {
 	});
 
 	toStep2Btn.addEventListener('click', () => {
-		// 进入拉坯步：应用选中器型的轮廓参数
-		clayBody.style.clipPath = buildClipPath(diyData.shapePts);
-		clayBody.style.width = '';
-		clayBody.style.height = '';
-		diyData.w = clayBody.offsetWidth;
-		diyData.h = clayBody.offsetHeight;
+		// 进入拉坯步：初始化 3D 胚体
+		window.__latheBasePts = [...SHAPE_MAP[diyData.shape].pts];
+		diyData.w = 160;
+		diyData.h = 200;
 		crack.style.display = 'none';
 		showDiyStep('diyStep2');
+		if (window.LathePot) {
+			window.LathePot.init(diyData.shapePts);
+			window.LathePot.setColor('#c9b196'); // 陶土色（未上釉）
+		}
 	});
 
 	// 拉坯：按鼠标在泥胚上的垂直位置，分部位调节
@@ -260,6 +264,7 @@ function initDiyGame() {
 			diyData.colorName = GLAZE_MAP[btn.dataset.color] || 'workshop.diy.customColor';
 			testGlaze.style.background = diyData.color;
 			applyGlaze(clayBody, diyData.color);
+			if (window.LathePot) window.LathePot.setColor(diyData.color);
 			const { r, g, b } = hexToRgb(diyData.color);
 			rSlider.value = r; gSlider.value = g; bSlider.value = b;
 		});
@@ -271,6 +276,7 @@ function initDiyGame() {
 			diyData.color = `rgb(${rSlider.value}, ${gSlider.value}, ${bSlider.value})`;
 			testGlaze.style.background = diyData.color;
 			applyGlaze(clayBody, diyData.color);
+			if (window.LathePot) window.LathePot.setColor(diyData.color);
 		});
 	});
 
@@ -279,6 +285,7 @@ function initDiyGame() {
 		diyData.colorName = 'workshop.diy.customColor';
 		testGlaze.style.background = diyData.color;
 		applyGlaze(clayBody, diyData.color);
+		if (window.LathePot) window.LathePot.setColor(diyData.color);
 	});
 
 	// 纹饰选择：进入第四步时根据窑口动态生成
@@ -290,13 +297,13 @@ function initDiyGame() {
 
 	toStep4Btn.addEventListener('click', () => {
 		renderPatternOptions();
-		previewClay.className = 'clay-body';
-		previewClay.style.clipPath = buildClipPath(diyData.shapePts);
-		previewClay.style.width = (diyData.w || 160) + 'px';
-		previewClay.style.height = (diyData.h || 200) + 'px';
-		applyGlaze(previewClay, diyData.color, diyData.pattern ? diyData.pattern.img : null,
-			(50 + diyData.patternPos.x/2) + '%', (50 + diyData.patternPos.y/2) + '%');
+		previewPlaceholder.style.display = 'none';
+		previewClay.style.display = 'none'; // 隐藏 DOM 瓷胚，交给 3D
 		showDiyStep('diyStep4');
+		if (window.LathePot) {
+			window.LathePot.setColor(diyData.color);
+			window.LathePot.setPattern(diyData.pattern ? diyData.pattern.img : null);
+		}
 	});
 
 	function renderPatternOptions() {
@@ -314,7 +321,7 @@ function initDiyGame() {
 				diyData.patternPos = { x: 0, y: 0 };
 				toStep5Btn.disabled = false;
 				previewPlaceholder.style.display = 'none';
-				applyGlaze(previewClay, diyData.color, p.img, '50%', '50%');
+				if (window.LathePot) window.LathePot.setPattern(p.img);
 			});
 			patternOptions.appendChild(div);
 		});
@@ -466,14 +473,12 @@ function initDiyGame() {
 			downloadBtn.style.display = 'inline-block';
 			restartBtn.style.display = 'inline-block';
 
-			// 成品泥坯：同步形状、尺寸、釉色、纹饰，加上釉面光泽
-			finalClay.className = 'clay-body glassy';
-			finalClay.style.clipPath = buildClipPath(diyData.shapePts);
-			finalClay.style.width = (diyData.w || 160) + 'px';
-			finalClay.style.height = (diyData.h || 200) + 'px';
-			applyGlaze(finalClay, diyData.color,
-				diyData.pattern ? diyData.pattern.img : null,
-				(50 + diyData.patternPos.x/2) + '%', (50 + diyData.patternPos.y/2) + '%');
+			// 成品泥坯：用 3D 瓶身替代 DOM clip-path
+			finalClay.style.display = 'none';
+			const stage = document.querySelector('.porcelain-stage');
+			if (stage && window.LathePot) {
+				window.LathePot.attachTo(stage);
+			}
 			const lang = (window.SongCiI18N && window.SongCiI18N.current) || 'zh';
 			productShape.textContent = __t(SHAPE_MAP[diyData.shape].nameKey);
 			productColor.textContent = __t(diyData.colorName) + (diyData.colorName === 'workshop.diy.customColor' ? ` (${diyData.color})` : '');
@@ -641,6 +646,9 @@ function initDiyGame() {
 
 	restartBtn.addEventListener('click', () => {
 		diyData = { shape: '', shapePts: [38,62,22,78,18,82,32,68], kiln: '', color: '#b3cde0', colorName: 'workshop.diy.glazeRu', pattern: null, patternPos: {x:0,y:0}, w:0, h:0 };
+		window.diyData = diyData;
+		window.__latheBasePts = null;
+		if (window.LathePot) window.LathePot.setColor('#c9b196');
 		shapeItems.forEach(i => i.querySelector('.shape-img').style.border = '2px solid transparent');
 		toStep2Btn.disabled = true;
 		patternOptions.innerHTML = '';
@@ -658,6 +666,7 @@ function initDiyGame() {
 		crack.style.display = 'none';
 		// 清空预览区
 		previewClay.className = 'clay-body';
+		previewClay.style.display = '';
 		previewClay.style.clipPath = buildClipPath([38,62,22,78,18,82,32,68]);
 		previewClay.style.width = '';
 		previewClay.style.height = '';
@@ -685,4 +694,14 @@ function initDiyGame() {
 function showDiyStep(stepId) {
 	document.querySelectorAll('.step-panel').forEach(panel => panel.classList.remove('active'));
 	document.getElementById(stepId).classList.add('active');
+	// 3D canvas 跟随步骤：step2 在拉坯区，step4 在纹样预览区
+	if (window.LathePot) {
+		if (stepId === 'diyStep2') {
+			const lc = document.querySelector('.lapi-container');
+			if (lc) window.LathePot.attachTo(lc);
+		} else if (stepId === 'diyStep4') {
+			const pv = document.getElementById('patternPreview');
+			if (pv) window.LathePot.attachTo(pv);
+		}
+	}
 }
