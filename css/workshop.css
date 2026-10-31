@@ -641,7 +641,6 @@ body {
 
 	.game-card {
 		width: 130px;
-		/* 手机端进一步适配，保证排版美观 */
 		padding: 25px 10px;
 	}
 
@@ -649,4 +648,38 @@ body {
 		font-size: 40px;
 	}
 
+	/* 手机端手势小窗缩小 */
+	.hand-panel {
+		width: 170px !important;
+		left: 8px !important;
+		bottom: 8px !important;
+	}
+	.hand-panel video,
+	.hand-panel canvas {
+		width: 170px !important;
+		height: 128px !important;
+	}
+	.hand-toggle {
+		top: 8px !important;
+		right: 8px !important;
+		font-size: 12px;
+		padding: 5px 10px;
+	}
+	/* 拉坯区高度适配手机 */
+	.lapi-container {
+		height: calc(100vh - 230px) !important;
+		min-height: 320px;
+	}
+	.step-panel {
+		padding: 15px !important;
+	}
+	/* 纹样预览区缩小 */
+	.pattern-preview {
+		width: 100% !important;
+		height: 280px !important;
+	}
+	.porcelain-stage {
+		width: 220px !important;
+		height: 220px !important;
+	}
 }
